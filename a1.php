@@ -28,9 +28,15 @@ echo<<<FORM_
 FORM_;
 
 // Send request to the file that generates the conservation plot
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['win_size'])) {	
-	$_SESSION['win_size'] = intval($_POST['win_size']);
-	include 'cons_plot.php';
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['win_size'])) {
+	// Making the sure the input is a valid integer, else default window size is chosen	
+	if (!is_int($_SESSION['win_size']) || ($_SESSION['win_size'] < 1 || trim($_POST['win_size']) == '')) {
+		$_SESSION['win_size'] = 4;
+		include 'cons_plot.php';
+	} else {
+		$_SESSION['win_size'] = intval($_POST['win_size']);
+		include 'cons_plot.php';
+	}
 } else {
 	$_SESSION['win_size'] = 4;
 	include 'cons_plot.php';
