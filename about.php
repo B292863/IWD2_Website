@@ -12,7 +12,10 @@ echo<<<_BODY1
 <div class="sub_box">
 <center><h1> About this Website</h1></center>
 </div>
+
 <p>This website hosts a suite of tools for analyzing a user selected protein family. </p>
+
+<hr></hr>
 
 <h2>Flow Chart of Website Functionality</h2>
 

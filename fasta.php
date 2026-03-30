@@ -1,10 +1,21 @@
 <?php
 require_once 'login.php';
 require_once 'redir.php';
-
 echo<<<_HEAD1
-	<html>
+<! DOCTYPE html>
+<html>
+<head>
+<title>FASTA Entries</title>
 <link rel="stylesheet" href="style.css">
+<style>
+
+td {
+    word-wrap: break-all;
+    max-width: 150px;
+}
+</style>
+</head>
+<body>
 _HEAD1;
 include 'menuf.php';
 
@@ -40,23 +51,17 @@ $query = "SELECT * FROM $data";
 $stmt = $pdo->query($query);
 $rows= $stmt->fetchAll();
 
-echo <<<HTML_1
-<head>
+echo<<<HTML_1
 <div class='content'>
-<title>FASTA Entries</title>
-
-<style>
-
-td {
-    word-wrap: break-all;
-    max-width: 150px;
-}
-</style>
-
-</head>
-<body>
 <div class="sub_box">
 <h1 align="center">Data Download</h1>
+</div>
+<p></p>
+	<!--Download the File-->
+<div>
+<form action="fasta_download.php" method="post">
+        <button type="submit" class="button">Download Data</button>
+</form>
 </div>
 
 <table width ="95%" border="0" cellspacing="0">
@@ -74,13 +79,8 @@ foreach ($rows as $row) {
 	echo "</tr>";
 }
 
-echo <<<HTML_2
-<!--Download the File-->
-<div>
-<form action="fasta_download.php" method="post">
-	<button type="submit">Download Data</button>
-</form>
-</div>
+echo<<<HTML_2
+</table>
 </div>
 </body>
 </html>

@@ -18,11 +18,11 @@ echo<<<_BODY1
 <h2>Functionality</h2>
 <div id="div1"
 <p>The following functions are hosted on this website</p>
-<p>1. <a href="https://bioinfmsc8.bio.ed.ac.uk/~s2901468/website/a1.php">Protein conservation analysis</a></p>
+<p>1. <a href="https://bioinfmsc8.bio.ed.ac.uk/~s2901468/iwd2_website/a1.php">Protein conservation analysis</a></p>
 <ul>
 	<li>This tool allows users to visualize conservation of amino acid residues at each position in a specified protein across the set of input protein sequences</li>
 </ul>
-<p>2. <a href="https://bioinfmsc8.bio.ed.ac.uk/~s2901468/website/a2.php">Multiple Sequence Alignment</a></p>
+<p>2. <a href="https://bioinfmsc8.bio.ed.ac.uk/~s2901468/iwd2_website/a2.php">Multiple Sequence Alignment</a></p>
 <ul>
 	<li>The Multiple Sequence Alignment (MSA) and consensus sequence generated using CLUSTALO for a set of inputted protein sequences are visualized</li>
 	<li>The underlying MSA can be downloaded as a multi-line MSA FASTA file, for any additional external analyses</li>
@@ -33,18 +33,18 @@ echo<<<_BODY1
 		<li>Gap Distribution - Another common approach for quantifying the quality of the MSA and probing the MSA for interesting biological features is characterizing the number and gap composition across aligned sequences. A histogram of gap composition across protein sequences is displayed here. Additionally, the average, minimum, maximum gap composition with associated sequence IDs are printed.</li>
 </ul>
 </ul>
-<p>3. <a href="https://bioinfmsc8.bio.ed.ac.uk/~s2901468/website/a3.php">Motif Analysis</a></p>
+<p>3. <a href="https://bioinfmsc8.bio.ed.ac.uk/~s2901468/iwd2_website/a3.php">Motif Analysis</a></p>
 <ul>
 	<li>The requested input protein sequences are scanned for motifs from PROSITE.</li>
 	<li>If a sequence contained a PROSITE, details regarding the motif are reported along with the sequence ID.</li>
 </ul>
-<p>4. <a href="https://bioinfmsc8.bio.ed.ac.uk/~s2901468/website/a4.php">Phylogenetic Analysis</a></p>
+<p>4. <a href="https://bioinfmsc8.bio.ed.ac.uk/~s2901468/iwd2_website/a4.php">Phylogenetic Analysis</a></p>
 <ul>
 	<li>The output is a phylogenetic tree that evaluates the sequence similarity of the input protein sequences and and infers evolutionary relationships between them.</li>
 	<li>The substitution matrix used in generating the tree is <a target="_blank" rel="noopener noreferrer" href="https://www.pnas.org/doi/epdf/10.1073/pnas.89.22.10915">BLOSUM62</a>, which is a commonly used substitution matrix (e.g., the default substitution matrix in BLASTP)</li>
 	<li>Note: since implementation is server-side, this may take a little while to run.</li>
 </ul>
-<p>5. <a href="https://bioinfmsc8.bio.ed.ac.uk/~s2901468/website/fasta.php">Data Download</a></p>
+<p>5. <a href="https://bioinfmsc8.bio.ed.ac.uk/~s2901468/iwd2_website/fasta.php">Data Download</a></p>
 <ul>
 	<li>This page allows users to examine the data by organism, sequence ID, and the sequence itself.</li>
 	<li>The requested input data can be downloaded as a multi-line FASTA file from this page, allowing any external analyses</li>

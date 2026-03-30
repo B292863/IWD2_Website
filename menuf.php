@@ -9,22 +9,22 @@
 require_once 'login.php';
 echo <<<_MENU1
 <div class="sidenav">
-    <a href="https://bioinfmsc8.bio.ed.ac.uk/~{$username}/website/home.php"> Home </a>
-    <a href="https://bioinfmsc8.bio.ed.ac.uk/~{$username}/website/about.php"> About </a>
-    <a href="https://bioinfmsc8.bio.ed.ac.uk/~{$username}/website/help.php"> Help </a>
-    <a href="https://bioinfmsc8.bio.ed.ac.uk/~{$username}/website/credits.php"> Statement of Credits </a>
-    <a href="https://bioinfmsc8.bio.ed.ac.uk/~{$username}/website/a1.php"> Conservation Analysis </a>
+    <a href="https://bioinfmsc8.bio.ed.ac.uk/~{$username}/iwd2_website/home.php"> Home </a>
+    <a href="https://bioinfmsc8.bio.ed.ac.uk/~{$username}/iwd2_website/about.php"> About </a>
+    <a href="https://bioinfmsc8.bio.ed.ac.uk/~{$username}/iwd2_website/help.php"> Help </a>
+    <a href="https://bioinfmsc8.bio.ed.ac.uk/~{$username}/iwd2_website/credits.php"> Statement of Credits </a>
+    <a href="https://bioinfmsc8.bio.ed.ac.uk/~{$username}/iwd2_website/a1.php"> Conservation Analysis </a>
     <div class="subnav">
     <button class="subnavbtn"> Multiple Sequence Analysis <i class="fa fa-caret-down"></i></button> 
 	<div class="subnav-content">
-		<a href="https://bioinfmsc8.bio.ed.ac.uk/~{$username}/website/a2.php">Multiple Sequence Alignment</a>
+		<a href="https://bioinfmsc8.bio.ed.ac.uk/~{$username}/iwd2_website/a2.php">Multiple Sequence Alignment</a>
 		<a href="#" onclick="openTab(event, 'MSA_stats')">Multiple Sequence Alignment Statistics</a>
 	</div>	
     </div>
-    <a href="https://bioinfmsc8.bio.ed.ac.uk/~{$username}/website/a3.php"> Motif Analysis </a>
-    <a href="https://bioinfmsc8.bio.ed.ac.uk/~{$username}/website/a4.php"> Phylogenetic Analysis </a>
-    <a href="https://bioinfmsc8.bio.ed.ac.uk/~{$username}/website/a5.php"> InterPro Functionality </a>
-    <a href="https://bioinfmsc8.bio.ed.ac.uk/~{$username}/website/fasta.php"> Data Download </a>
+    <a href="https://bioinfmsc8.bio.ed.ac.uk/~{$username}/iwd2_website/a3.php"> Motif Analysis </a>
+    <a href="https://bioinfmsc8.bio.ed.ac.uk/~{$username}/iwd2_website/a4.php"> Phylogenetic Analysis </a>
+    <a href="https://bioinfmsc8.bio.ed.ac.uk/~{$username}/iwd2_website/a5.php"> InterPro Functionality </a>
+    <a href="https://bioinfmsc8.bio.ed.ac.uk/~{$username}/iwd2_website/fasta.php"> Data Download </a>
 </div>
 _MENU1;
 ?>
