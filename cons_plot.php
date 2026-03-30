@@ -1,20 +1,35 @@
 <?php
 require_once 'login.php';
 require_once 'redir.php';
-// Making the connection
 
 $img = "/tmp/plotcon.1.png";
 
+// Set default window size
+// Reference: https://www.w3schools.com/php/func_var_intval.asp
+// Reference: https://www.w3schools.com/php/php_operators.asp
+//$win_size = isset($_POST['win_size']) ? intval($_POST['win_size']) : 4;
+
+// Take the user set parameters, if chosen
+
+//if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//        if (isset($_POST['win_size']) && $_POST['win_size'] != "") {
+//		$win_size = $_POST['win_size'];
+//	}
+//}
+
+// Ensuring that an old conservation plot will not be sent to the website
 if (file_exists($img)) {
         unlink($img);
 }
 
+// Failsafe if the data has not been selected
 if (!$data) {
         echo "<h2 align='center'>Residue Conservation Plot</h2>";
         echo "<p align='center'>No data has been selected yet!</p>";
         exit();
 }
 
+// Making the connection
 try {
         $pdo = new PDO(
                 "mysql:host=$hostname;dbname=$database",
@@ -74,8 +89,10 @@ proc_close($process1);
 
 // Generating the conservation plot
 
+$win_size = $_SESSION['win_size'];
+
 $tmpimg = "/tmp/plotcon";
-$process2 = proc_open("plotcon -sequences $tmpmsa -graph png -winsize 4 -goutfile $tmpimg",
+$process2 = proc_open("plotcon -sequences $tmpmsa -graph png -winsize $win_size -goutfile $tmpimg",
         $descriptorspec,
 	$pipes);
 
