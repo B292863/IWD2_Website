@@ -21,6 +21,8 @@ echo<<<_BODY1
 <p>1. <a href="https://bioinfmsc8.bio.ed.ac.uk/~s2901468/iwd2_website/a1.php">Protein conservation analysis</a></p>
 <ul>
 	<li>This tool allows users to visualize conservation of amino acid residues at each position in a specified protein across the set of input protein sequences</li>
+	<li>The conservation plot is generated via plotcon, which calculates sequence conservation across windows in the Multiple Sequence Alignment. The resulting visual represents the average postion similarity across each window.</li>
+	<li>In plotcon, position similarity is computed as the averaged over all pairwise substitution scores at that position.</p>
 </ul>
 <p>2. <a href="https://bioinfmsc8.bio.ed.ac.uk/~s2901468/iwd2_website/a2.php">Multiple Sequence Alignment</a></p>
 <ul>

@@ -297,25 +297,37 @@ function openTab(evt, tab_name) {
   for (i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
   }
-  tablinks = document.getElementsByClassName("tablinks");
+  tablinks = document.getElementsByClassName(".subnav-content a[onclick]"); // tablinks
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
   document.getElementById(tab_name).style.display = "block";
+  // Selecting only the currently selected tab without crashing
+  if (evt && evt.currentTarget) {
   evt.currentTarget.className += " active";
+}
 }
 
 // Get the element with id="defaultOpen" and click on it
 //document.getElementById("defaultOpen").click();
 
-// Make sure that MSA is the default 
+// Make sure that MSA is the default
+// Access tabs from urls 
 // Reference: mixture of online resources on JS and ChatGPT
 window.onload = function() {
-  openTab(null, 'MSA');
+  //Reference: https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
+  const params = new URLSearchParams(window.location.search);
+  const tab = params.get("tab");
+   
+  if (tab) {
+    openTab(null, tab);
+  } else {
+    // Set the default
+    openTab(null, 'MSA');
+}
 };
 </script>
 </body>
 </html> 
 _TAIL;
 ?>
-

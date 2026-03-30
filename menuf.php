@@ -18,7 +18,7 @@ echo <<<_MENU1
     <button class="subnavbtn"> Multiple Sequence Analysis <i class="fa fa-caret-down"></i></button> 
 	<div class="subnav-content">
 		<a href="https://bioinfmsc8.bio.ed.ac.uk/~{$username}/iwd2_website/a2.php">Multiple Sequence Alignment</a>
-		<a href="#" onclick="openTab(event, 'MSA_stats')">Multiple Sequence Alignment Statistics</a>
+		<a href="a2.php?tab=MSA_stats">Multiple Sequence Alignment Statistics</a>
 	</div>	
     </div>
     <a href="https://bioinfmsc8.bio.ed.ac.uk/~{$username}/iwd2_website/a3.php"> Motif Analysis </a>
