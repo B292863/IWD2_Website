@@ -54,7 +54,7 @@ echo<<<_BODY1
 
 <h3>GitHub</h3>
 
-<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/catjobe/IWD2_website">Protein Family Analyzer GitHub Page</a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/B292863/IWD2_Website">Protein Family Analyzer GitHub Page</a></p>
 
 </div>
 </body>
