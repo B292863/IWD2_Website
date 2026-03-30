@@ -28,6 +28,7 @@ echo<<<FORM_
 FORM_;
 
 // Send request to the file that generates the conservation plot
+// Reference: https://www.w3schools.com/php/func_var_intval.asp
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['win_size'])) {
 	// Making the sure the input is a valid integer, else default window size is chosen	
 	if (!is_int($_SESSION['win_size']) || ($_SESSION['win_size'] < 1 || trim($_POST['win_size']) == '')) {

@@ -4,19 +4,6 @@ require_once 'redir.php';
 
 $img = "/tmp/plotcon.1.png";
 
-// Set default window size
-// Reference: https://www.w3schools.com/php/func_var_intval.asp
-// Reference: https://www.w3schools.com/php/php_operators.asp
-//$win_size = isset($_POST['win_size']) ? intval($_POST['win_size']) : 4;
-
-// Take the user set parameters, if chosen
-
-//if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//        if (isset($_POST['win_size']) && $_POST['win_size'] != "") {
-//		$win_size = $_POST['win_size'];
-//	}
-//}
-
 // Ensuring that an old conservation plot will not be sent to the website
 if (file_exists($img)) {
         unlink($img);
