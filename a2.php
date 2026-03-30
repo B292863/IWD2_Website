@@ -169,11 +169,14 @@ if (file_exists($img)) {
 	// echo "<pre>";
 	//echo $img;
 	// echo "</pre>";
-	echo "<table><tr>";
-	echo "<td width=100%>";
+	echo "<div class='layout'>";
+	//echo "<td width=100%>";
+	echo "<div>";
 	echo '<img src=get_aa_heat.php alt="Amino Acid Substitution Heatmap" width="500" height="600" class="center">';
-	echo "</td>";
-	echo "<td width=50%>";
+	//echo "</td>";
+	//echo "<td width=50%>"
+	echo "</div>";
+	echo "<div>";
 	echo "<h3>Interpretation:</h3>";
 	echo "<p>This heatmap counts the number of amino acid substitutions (mismatches) across the MSA</p>";
 	echo "<p>The diagonal represents the positions in the MSA that were identical between a pair of sequences (matches)</p>";
@@ -184,8 +187,10 @@ if (file_exists($img)) {
 	echo "<li>Amino acids do not occur at equal frequencies, note the larger counts of certain amino acids in the diagonal (e.g., Leucine (L) is the most abundant amino acid).</li>";
 	echo "<li>There are certain mismatches that are more or less common depending on the input set of proteins, which can be identified by cells in the heatmap that are <u>less blue</u>.</li>";
 	echo "</ul>";
-	echo "</td>";
-	echo "</table></tr>";
+	//echo "</td>";
+	//echo "</table></tr>";
+	echo "</div>";
+	echo "</div>";
 } else {
         echo '<p align="center">No Amino Acid Substitution Heatmap Exists</p>';
 }
@@ -199,20 +204,21 @@ echo "<hr>";
 
 echo "<h3 align='center'>Sequence Length Distribution</h3>";
 
-echo "<table>";
+//echo "<table>";
 if (file_exists($lenimg)) {
+	echo "<div class='layout'>";
         clearstatcache(true, $lenimg);
         // echo "<pre>";
         //echo $img;
 	// echo "</pre>";
-	echo "<td>";
-	//echo "<div class='row' style='width:200%'>";
-	//	echo "<div class='column'>";
+	//echo "<tr>";
+	//echo "<td>";
+	echo "<div>";
 	echo '<img src=get_lens.php alt="Sequence Length Distribution" width="500" height="600" class="center">';
-	echo "</td>";
-	// echo "</div>";
-	// echo "<div class='column'>";
-	echo "<td>";
+	//echo "</td>";
+	echo "</div>";
+	echo "<div class='text'>";
+	//echo "<td>";
 	echo "<p>For the set of input protein sequences, explore the distribution of sequence lengths</p>";
 
 	echo "<div class='data'>";
@@ -225,35 +231,44 @@ if (file_exists($lenimg)) {
 		echo "</table>";
 		echo "</div>";
 		// echo "</div>";
-		echo "</td>";
+		//echo "</td>";
+	//echo "</tr>";
+		echo "</div>";
+		echo "</div>";
+		//echo "</div>";
 } else {
         echo '<p align="center">No Sequence Length Distributions Exists</p>';
 }
 
 // Gaps
 $gapimg = "/tmp/gaps_hist.png";
-echo "</table>";
+//echo "</table>";
 echo "</hr>";
 echo "<hr>";
 echo "<h3 align='center'>Gap Distribution</h3>";
 
-echo "<table>";
+	//echo "<table>";
+
 if (file_exists($gapimg)) {
-        clearstatcache(true, $gapimg);
+	clearstatcache(true, $gapimg);
+	echo "<div class='layout'>";
         // echo "<pre>";
         //echo $img;
 	// echo "</pre>";
         //echo "<div class='row' style='width:200%'>";
 	//        echo "<div class='column'>";
-	echo "<tr><td>";
+	//echo "<tr><td>";
+	echo "<div>";
 	echo '<p><img src=get_gaps.php alt="Sequence Gap Composition" width="500" height="600" class="center"></p>';
-	echo "</td>";
-	//echo "</div>";
-	echo "<td>";
+	//echo "</td>";
+	echo "</div>";
+	//echo "<td>";
 	if (!empty($_SESSION['gap_vals'])) {
+	echo "<div class='text'>";
 	//echo "<div class='column'>";
 	// echo var_dump($_SESSION['gap_vals']);
 	echo "<div class='data'>";
+	echo "<p>Explore the gap composition for the set of input protein sequences.</p>";
         echo "<table>";
                 echo "<tr><th>Type</th><th>Value</th></tr>";
                 // Reference: https://www.w3schools.com/php/php_looping_foreach.asp
@@ -261,7 +276,9 @@ if (file_exists($gapimg)) {
                         echo "<tr><td>$key</td><td>$value</td></tr>";
                 }
 		echo "</table>";
-		echo "</td></tr>";
+		//echo "</td></tr>";
+		echo "</div>";
+		echo "</div>";
 		echo "</div>";
 		// echo "</div>";
 	}

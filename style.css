@@ -236,3 +236,31 @@ img {
   display: block;
 }
 
+/* FlexBox for layout */
+/* Reference: https://www.w3schools.com/css/css3_flexbox.asp */
+.layout {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  /*max-width: 700px;*/
+  margin: 40px 0;
+  gap: 40px;
+  /*align-self: center;*/
+}
+
+.layout img {
+  width: 500px;
+  flex-shrink: 0;
+}
+
+.text {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+}
+/*
+.layout div {
+  margin: 10px;
+  padding: 20px;
+}*/
