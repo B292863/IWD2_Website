@@ -2,6 +2,8 @@
 require_once 'login.php';
 require_once 'redir.php';
 
+// Purpose: Generate the Conservation Plot
+
 $img = "/tmp/plotcon.1.png";
 
 // Ensuring that an old conservation plot will not be sent to the website
@@ -36,9 +38,6 @@ try {
 $query = "SELECT * FROM $data";
 $stmt = $pdo->query($query);
 $rows = $stmt->fetchAll();
-
-// https://www.w3schools.com/php/func_var_var_dump.asp
-//var_dump($rows);
 
 // Generate the FASTA string (stdin) [by appending each row to the string]
 $fasta_stdin = "";
@@ -76,6 +75,7 @@ proc_close($process1);
 
 // Generating the conservation plot
 
+// Get the selected window size
 $win_size = $_SESSION['win_size'];
 
 $tmpimg = "/tmp/plotcon";
@@ -85,7 +85,6 @@ $process2 = proc_open("plotcon -sequences $tmpmsa -graph png -winsize $win_size 
 
 fclose($pipes[0]);
 
-// plotcon needs MSA in a file, doesn't take stdin
 $output = stream_get_contents($pipes[1]);
 $error = stream_get_contents($pipes[2]);
 

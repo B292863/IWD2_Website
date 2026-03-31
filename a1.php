@@ -2,7 +2,9 @@
 require_once 'login.php';
 require_once 'redir.php';
 include 'menuf.php';
-?>
+// Purpose: Sets up the Conservation Analysis Page
+
+echo<<<HEAD_
 <html>
 <body>
 <link rel="stylesheet" href="style.css">
@@ -17,9 +19,12 @@ include 'menuf.php';
 <p>Regions of elevated residue similarity represents homology, which can indicate something about the functional importance of a protein region</p>
 <--! FINISH -->
 <p>For further analysis, the conservation plot below can be updated to increase or decrease the window size in which the sequence similarity is computed and averaged over. If the default (4) seems too noisy, the window size can be increased too smooth the shape of the conservation plot to more accurately identify conserved regions.</p>
-<?php
+HEAD_;
+
+// Assign the name of the conservation plot output to a variable
 $img = "/tmp/plotcon.1.png";
 
+// Set up the form to allow users to change the window size
 echo<<<FORM_
 <form action="a1.php" method="post">
   <p><b>Window Size:</b> <input type="text" name="win_size"></p><p style="font-size: 10px;"><i>Default: 4</i></p>
@@ -27,7 +32,7 @@ echo<<<FORM_
 </form>
 FORM_;
 
-// Send request to the file that generates the conservation plot
+// Send window size request to the file that generates the conservation plot
 // Reference: https://www.w3schools.com/php/func_var_intval.asp
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['win_size'])) {
 	// Making the sure the input is a valid integer, else default window size is chosen	

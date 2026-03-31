@@ -7,7 +7,8 @@
 <body>
 <?php
 require_once 'login.php';
-// Generating the linkouts in the sidebar; to be able to access webpages in the website
+// Purpose: Generating the linkouts in the sidebar; to be able to access webpages in the website
+// The nested <div> tags are used for drop down menu and subtab functionality
 echo <<<_MENU1
 <div class="sidenav">
     <a href="https://bioinfmsc8.bio.ed.ac.uk/~{$username}/iwd2_website/home.php"> Home </a>
@@ -16,7 +17,7 @@ echo <<<_MENU1
     <a href="https://bioinfmsc8.bio.ed.ac.uk/~{$username}/iwd2_website/credits.php"> Statement of Credits </a>
     <a href="https://bioinfmsc8.bio.ed.ac.uk/~{$username}/iwd2_website/a1.php"> Conservation Analysis </a>
     <div class="subnav">
-    <button class="subnavbtn"> Multiple Sequence Analysis <i class="fa fa-caret-down"></i></button> 
+    <button class="subnavbtn"> Multiple Sequence Alignment <i class="fa fa-caret-down"></i></button> 
 	<div class="subnav-content">
 		<a href="https://bioinfmsc8.bio.ed.ac.uk/~{$username}/iwd2_website/a2.php">Multiple Sequence Alignment</a>
 		<a href="a2.php?tab=MSA_stats">Multiple Sequence Alignment Statistics</a>

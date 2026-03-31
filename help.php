@@ -1,6 +1,6 @@
 <?php
 session_start();
-#include 'redir.php';
+// Purpose: Set up the Help page
 require_once 'login.php';
 echo<<<_HEAD1
 <html>

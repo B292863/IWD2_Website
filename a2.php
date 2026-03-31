@@ -6,7 +6,8 @@ include 'menuf.php';
 include 'aa_heat.php';
 include 'lens.php';
 include 'gaps.php';
-// include 'menuf.php';
+// Purpose: Set up the Multiple Sequence Alignment page
+
 // Reference: https://www.w3schools.com/howto/howto_js_vertical_tabs.asp
 // Based my tabs on this: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_vertical_tabs
 echo<<<_HEAD1
@@ -54,9 +55,6 @@ try {
 $query = "SELECT * FROM $data";
 $stmt = $pdo->query($query);
 $rows = $stmt->fetchAll();
-
-// https://www.w3schools.com/php/func_var_var_dump.asp
-//var_dump($rows);
 
 // Generate the FASTA string (stdin) [by appending each row to the string]
 $fasta_stdin = "";
@@ -108,12 +106,6 @@ $process_pretty_align = proc_open("showalign -sequence $tmpmsa -show=a -show=i -
 
 fclose($pipes[0]);
 
-// Capture the alignment
-// $output_align = stream_get_contents($pipes[1]);
-// $error_align = stream_get_contents($pipes[2]);
-// fclose($pipes[1]);
-// fclose($pipes[2]);
-
 $pmsa = stream_get_contents($pipes[1]);
 $error = stream_get_contents($pipes[2]);
 
@@ -123,9 +115,7 @@ fclose($pipes[2]);
 // Terminate the process
 proc_close($process_pretty_align);
 
-// Simple print to screen
-// echo "<h1 align='center'>Multiple Sequence Alignment:</h1>";
-
+// Sets up the MSA download button, which allows users to download the MSA file in FASTA format
 echo <<<_DOWNLOAD
 <div class="content">
 <div>
@@ -136,6 +126,7 @@ echo <<<_DOWNLOAD
 </div>
 _DOWNLOAD;
 
+// Print the MSA to the screen
 // Reference: https://www.w3schools.com/html/html_iframe.asp
 if (file_exists($tmppmsa)) {
         echo '<iframe src=get_pretty_align.php width="100%" height="1000" frameBorder = "0" class="center"></iframe>';
@@ -143,7 +134,7 @@ if (file_exists($tmppmsa)) {
         echo '<p align="center">No MSA Exists</p>';
 }
 
-// Troubleshooting: echo "<h3>Error:</h3><pre>$error</pre>";
+// Set up the contents of the second tab (MSA Statistics)
 echo "</div>";
 echo<<<_TAB2
 <div id="MSA_stats" class="tabcontent">
@@ -164,17 +155,12 @@ _TAB2;
 // Added this to be specific
 $img = "/tmp/heatmap.png";
 
+// Printing the Amino Acid Substitution Heatmap, if it exists
 if (file_exists($img)) {
 	clearstatcache(true, $img);
-	// echo "<pre>";
-	//echo $img;
-	// echo "</pre>";
 	echo "<div class='layout'>";
-	//echo "<td width=100%>";
 	echo "<div>";
 	echo '<img src=get_aa_heat.php alt="Amino Acid Substitution Heatmap" width="500" height="600" class="center">';
-	//echo "</td>";
-	//echo "<td width=50%>"
 	echo "</div>";
 	echo "<div>";
 	echo "<h3>Interpretation:</h3>";
@@ -187,8 +173,6 @@ if (file_exists($img)) {
 	echo "<li>Amino acids do not occur at equal frequencies, note the larger counts of certain amino acids in the diagonal (e.g., Leucine (L) is the most abundant amino acid).</li>";
 	echo "<li>There are certain mismatches that are more or less common depending on the input set of proteins, which can be identified by cells in the heatmap that are <u>less blue</u>.</li>";
 	echo "</ul>";
-	//echo "</td>";
-	//echo "</table></tr>";
 	echo "</div>";
 	echo "</div>";
 } else {
@@ -204,23 +188,15 @@ echo "<hr>";
 
 echo "<h3 align='center'>Sequence Length Distribution</h3>";
 
-//echo "<table>";
+// Print the Sequence Length Distribution Histogram if it exists
 if (file_exists($lenimg)) {
 	echo "<div class='layout'>";
         clearstatcache(true, $lenimg);
-        // echo "<pre>";
-        //echo $img;
-	// echo "</pre>";
-	//echo "<tr>";
-	//echo "<td>";
 	echo "<div>";
 	echo '<img src=get_lens.php alt="Sequence Length Distribution" width="500" height="600" class="center">';
-	//echo "</td>";
 	echo "</div>";
 	echo "<div class='text'>";
-	//echo "<td>";
 	echo "<p>For the set of input protein sequences, explore the distribution of sequence lengths</p>";
-
 	echo "<div class='data'>";
 	echo "<table>";
 		echo "<tr><th>Type</th><th>Value</th></tr>";
@@ -230,43 +206,30 @@ if (file_exists($lenimg)) {
 		}
 		echo "</table>";
 		echo "</div>";
-		// echo "</div>";
-		//echo "</td>";
-	//echo "</tr>";
 		echo "</div>";
 		echo "</div>";
-		//echo "</div>";
 } else {
         echo '<p align="center">No Sequence Length Distributions Exists</p>';
 }
 
-// Gaps
+// Gaps Content
 $gapimg = "/tmp/gaps_hist.png";
-//echo "</table>";
+
 echo "</hr>";
+
 echo "<hr>";
 echo "<h3 align='center'>Gap Distribution</h3>";
 
-	//echo "<table>";
-
+// Print the Gaps Content Distribution Histogram if it exists
 if (file_exists($gapimg)) {
 	clearstatcache(true, $gapimg);
 	echo "<div class='layout'>";
-        // echo "<pre>";
-        //echo $img;
-	// echo "</pre>";
-        //echo "<div class='row' style='width:200%'>";
-	//        echo "<div class='column'>";
-	//echo "<tr><td>";
 	echo "<div>";
 	echo '<p><img src=get_gaps.php alt="Sequence Gap Composition" width="500" height="600" class="center"></p>';
-	//echo "</td>";
 	echo "</div>";
-	//echo "<td>";
+	// Ensure that the session variable with the summary data exists and is populated
 	if (!empty($_SESSION['gap_vals'])) {
 	echo "<div class='text'>";
-	//echo "<div class='column'>";
-	// echo var_dump($_SESSION['gap_vals']);
 	echo "<div class='data'>";
 	echo "<p>Explore the gap composition for the set of input protein sequences.</p>";
         echo "<table>";
@@ -276,13 +239,10 @@ if (file_exists($gapimg)) {
                         echo "<tr><td>$key</td><td>$value</td></tr>";
                 }
 		echo "</table>";
-		//echo "</td></tr>";
 		echo "</div>";
 		echo "</div>";
 		echo "</div>";
-		// echo "</div>";
 	}
-		// echo "</div>";
 } else {
         echo '<p align="center">No Sequence Gap Composition Histogram Exists</p>';
 }
@@ -291,6 +251,7 @@ echo "</div>";
 echo "</div>";
 echo <<<_TAIL
 <script>
+// Reference: https://www.w3schools.com/howto/howto_js_tabs.asp
 function openTab(evt, tab_name) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
@@ -307,9 +268,6 @@ function openTab(evt, tab_name) {
   evt.currentTarget.className += " active";
 }
 }
-
-// Get the element with id="defaultOpen" and click on it
-//document.getElementById("defaultOpen").click();
 
 // Make sure that MSA is the default
 // Access tabs from urls 

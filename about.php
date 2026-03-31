@@ -1,7 +1,7 @@
 <?php
 session_start();
-#include 'redir.php';
 require_once 'login.php';
+// Purpose: Set up the About page
 echo<<<_HEAD1
 <html>
 <body>
