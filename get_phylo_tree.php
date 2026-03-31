@@ -5,11 +5,9 @@ include 'phylo_tree.php';
 
 $img = "/tmp/tree.png";
 
+// If the file exists, extract and print it, if not print a message about the failure to the screen (prevent error)
 if (file_exists($img)) {
 	header("Content-Type: image/png");
-        //header("Cache-Control: no-cache, no-store, must-revalidate");
-        //header("Pragma: no-cache");
-        //header("Expires: 0");
 	readfile($img);
 	exit;
 } else {
