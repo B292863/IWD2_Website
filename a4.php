@@ -4,10 +4,8 @@ require_once 'redir.php';
 include 'menuf.php';
 include 'phylo_tree.php';
 
+// Specify the name of the tree file
 $tree = "/tmp/tree.png";
-// if (!file_exists($tree)) {
-//	echo "Tree is still being generated, thank you for your patience!";
-// }
 
 echo <<<HEAD_
 <!-- Resource: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_image_center -->
@@ -17,7 +15,6 @@ echo <<<HEAD_
 <div class='content'>
 <div class="sub_box">
 <h1 align=center>Phylogenetic Analysis</h1>
-</div>
 </div>
 HEAD_;
 
@@ -50,17 +47,22 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // Print the phylogenetic tree
 // Reference: https://www.w3schools.com/tags/tag_meta.asp
-echo "<div class='content'>";
+echo "<div class='vert_layout'>";
+echo "<div>";
 if (!file_exists($tree)) {
 	echo '<meta http-equiv="refresh" content="30">';
 } else {
 	echo '<img src="get_phylo_tree.php" alt="Gene Tree" width="500" height="600" class="center">';
 }
+echo "</div>";
 
 // Return list of Organisms and IDs
+echo "<div>";
 echo "<div class='data'>";
-echo "<table>";
+echo "<table style='margin: 0 auto'>";
 echo "<tr><th>ID</th><th>Organism</th></tr>";
+
+// Printing the data as a table
 // Reference: https://www.w3schools.com/php/php_looping_foreach.asp
 // Reference: https://www.ibm.com/docs/en/db2/11.5.x?topic=rqrs-fetching-rows-columns-from-result-sets
 foreach ($rows as $row) {
@@ -68,7 +70,9 @@ foreach ($rows as $row) {
 }
 echo "</table>";
 echo "</div>";
-echo "</div";
+echo "</div>";
+echo "</div>";
+echo "</div>";
 echo <<<END_
 </html>
 </body>
