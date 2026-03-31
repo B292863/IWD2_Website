@@ -268,3 +268,10 @@ img {
   margin: 40px 0;
   gap: 40px;
 }
+
+.vert_layout img {
+  width: 500px;
+  height: auto;
+  flex-shrink: 0;
+}
+

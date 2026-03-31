@@ -4,6 +4,8 @@ require_once 'redir.php';
 include 'menuf.php';
 include 'phylo_tree.php';
 
+// Purpose: Set up the Phylogenetic Analysis page
+
 // Specify the name of the tree file
 $tree = "/tmp/tree.png";
 
@@ -45,14 +47,16 @@ $query = "SELECT id,organism FROM $data";
 $stmt = $pdo->query($query);
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Print the phylogenetic tree
+// Print the phylogenetic tree if the file exists
 // Reference: https://www.w3schools.com/tags/tag_meta.asp
 echo "<div class='vert_layout'>";
 echo "<div>";
 if (!file_exists($tree)) {
 	echo '<meta http-equiv="refresh" content="30">';
 } else {
-	echo '<img src="get_phylo_tree.php" alt="Gene Tree" width="500" height="600" class="center">';
+	echo "<div>";
+	echo '<img src="get_phylo_tree.php" alt="Gene Tree" width="500" class="center">'; //height="600"
+	echo "</div>";
 }
 echo "</div>";
 

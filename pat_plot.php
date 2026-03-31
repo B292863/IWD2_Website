@@ -2,23 +2,23 @@
 require_once 'login.php';
 require_once 'redir.php';
 
+// Purpose: Run the program for generating the piechart summary plot for patmatmotif output
+
 $img = "/tmp/pat_plot.png"; // generate a new filename each time to get around caching issues
 
-// echo "<pre>";
-// echo $img;
-// echo "</pre>";
-
+// Remove the file if it already exists, to prevent printing an old image
 if (file_exists($img)) {
         unlink($img);
 }
 
+// Make sure that if there is no data found, no errors are printed to the screen
 if (!$data) {
         echo "<h2 align='center'>PROSITE Motifs</h2>";
         echo "<p align='center'>No data has been selected yet!</p>";
         exit();
 }
 
-// Generating the amino acid heatmap
+// Generating the patmatmotifs piechart
 $python = __DIR__ . "/directed_learning/bin/python3";
 
 // Generate a string from the necessary motif names
@@ -29,12 +29,9 @@ if (!isset($_SESSION['pats'])) {
 	$pats = implode(",",$_SESSION['pats']);
 }
 
+// Create and execute the command
 $command = escapeshellcmd($python) . " pat_image.py " . escapeshellarg($pats) . " " . escapeshellarg($img);
-// echo "<pre>";
-// echo $command;
-// echo "</pre>";
 exec($command);
-//file_put_contents($img, $heat)
 
 // Print image to the screen
 $img = "/tmp/pat_plot.png";

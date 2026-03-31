@@ -2,6 +2,9 @@
 require_once 'login.php';
 require_once 'redir.php';
 include 'pat_plot.php';
+
+// Purpose: Sets up the Motif Analysis page
+
 echo<<<_HEAD1
 <html>
 <body>
@@ -20,6 +23,7 @@ if (!$data) {
         die();
 }
 
+// Specify the names of the output files
 $tmpfasta = "/tmp/fasta.fa";
 $tmpout = "/tmp/motifs.txt";
 
@@ -53,34 +57,26 @@ $query = "SELECT * FROM $data";
 $stmt = $pdo->query($query);
 $rows = $stmt->fetchAll();
 
-// https://www.w3schools.com/php/func_var_var_dump.asp
-//var_dump($rows);
-
-// Getting the data
-$query = "SELECT * FROM $data";
-$stmt = $pdo->query($query);
-$rows = $stmt->fetchAll();
-
-// https://www.w3schools.com/php/func_var_var_dump.asp
-//var_dump($rows);
-
-// Generate the FASTA string (stdin) [by appending each row to the string]
+// patmatmotifs only searches motifs in one input sequence at a time
+// This foreach loop ensures that patmatmotifs scans for motifs in each input sequence
 foreach ($rows as $row) {
+	// Generate the FASTA string (stdin) [by appending each row to the string]
         $fasta_stdin = "";
         $fasta_stdin .= ">" . $row['id'] . " " . $row['protein'] . " [" . $row['organism'] . "]\n";
         $fasta_stdin .= $row['sequence'] . "\n";
 
-
+	// Place the output into a file
         $msa = file_put_contents($tmpfasta, $fasta_stdin);
 
 
-        // Run the MSA command: https://stackoverflow.com/questions/6014819/how-to-get-output-of-proc-open
+        // Run the patmatmotifs command: https://stackoverflow.com/questions/6014819/how-to-get-output-of-proc-open
         $descriptorspec = array(
             0 => array("pipe", "r"), // stdin
             1 => array("pipe", "w"), // stdout
             2 => array("pipe", "w") // stderrors
         );
-
+	
+	// Specify the temporary output
         $tmpout1 = '/tmp/motifs_o.txt';
 
         $process = proc_open("patmatmotifs -sequence $tmpfasta -outfile $tmpout1",
@@ -92,36 +88,37 @@ foreach ($rows as $row) {
         $error = stream_get_contents($pipes[2]);
         fclose($pipes[1]);
         fclose($pipes[2]);
-
+	
+	// Generate the final output, that includes identified motifs across all the data
         exec("cat $tmpout1 >> $tmpout");
         // Terminate the process
         proc_close($process);
 };
 
+// Parse the patmatmotif file
 $python = __DIR__ . "/directed_learning/bin/python3";
 $command = escapeshellcmd($python) . " patmat_parser.py " . escapeshellarg($tmpout);
-// echo "<pre>";
-// echo $command;
-// echo "</pre>";
 exec($command, $out, $err);
 $parsed = json_decode(implode("", $out), true);
 $_SESSION['pats'] = array();
+
 echo "<div class='content'>";
 
 $img = "/tmp/pat_plot.png";
 
 echo "<div class='sub_box'><h1 align='center'>Motif Report</h1></div>"; //<pre align='center'>
 
+// Print the summary data to the screen if the file exists
 if (file_exists($img)) {
 	echo '<img src=get_pat_plot.php alt="PROSITE Motif Summary" width="500" height="600" class="center">';
 } else {
         echo '<p align="center">No PROSITE Motif Summary</p>';
 }
 
-// Initialize
+// Initializethe patmat session variable
 $_SESSION['pats'] = [];
 
-// Simple print to screen
+// Print the parsed patmatmotif data to the website as a table, if output was successfully generated
 if (file_exists($tmpout)) {
 	echo "<div class='data'>";
         echo "<table align='center'>";

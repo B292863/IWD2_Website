@@ -2,6 +2,8 @@
 require_once 'login.php';
 require_once 'redir.php';
 
+// Purpose: Extract the data and generate the phylogenetic tree
+
 // Makes sure that if there is no table existing with the name $data, that no error shows up
 if (!$data) {
 	echo "<div class='content'>";
@@ -12,10 +14,6 @@ if (!$data) {
 }
 
 $img = "/tmp/tree.png";
-
-// if (file_exists($img)) {
-//         unlink($img);
-// }
 
 // Making the connection
 
@@ -38,9 +36,6 @@ try {
 $query = "SELECT * FROM $data";
 $stmt = $pdo->query($query);
 $rows = $stmt->fetchAll();
-
-// https://www.w3schools.com/php/func_var_var_dump.asp
-//var_dump($rows);
 
 // Generate the FASTA string (stdin) [by appending each row to the string]
 $fasta_stdin = "";
@@ -75,6 +70,7 @@ fclose($pipes[2]);
 // Terminate the process
 proc_close($process1);
 
+// Verify that the MSA file was generated; this makes sure that if there wasa failure here, no error will be generated, only this message
 if (!file_exists($tmpmsa)) {
 	echo "<div class='content'>";
 	echo "MSA failed to produce file";
@@ -83,38 +79,17 @@ if (!file_exists($tmpmsa)) {
 }
 
 // Generating the treefile
-
 $tmptree = "/tmp/treefile";
-// $process2 = proc_open("iqtree -m JC -s $tmpmsa -nt 4 -pre $tmptree",
-//        $descriptorspec,
-//	$pipes);
 $tmptreefile = "/tmp/treefile.treefile";
 
-// if (file_exists($tmptreefile)) {
-//        unlink($tmptreefile);
-//}
-
+// Define the program
 $iqtree = '/localdisk/home/ubuntu-software/iqtree-2.2.0-Linux/bin/iqtree';
 $command = escapeshellcmd($iqtree);
 exec("which $iqtree", $out);
-// echo implode("\n", $out);
 
-// fclose($pipes[0]);
-// https://iqtree.github.io/doc/Substitution-Models
+// Run the command to generate the treefile
 $command1 = escapeshellcmd($iqtree) . " -m Blosum62 -s " . escapeshellarg($tmpmsa) . " -pre " . escapeshellarg($tmptree) . ' -redo'; // -nt 4
-// echo "<pre>";
-// echo $command1;
-// echo "</pre>";
 exec($command1);
-// plotcon needs MSA in a file, doesn't take stdin
-//$output = stream_get_contents($pipes[1]);
-//$error = stream_get_contents($pipes[2]);
-
-//fclose($pipes[1]);
-//fclose($pipes[2]);
-
-// Terminate the process
-//proc_close($process2);
 
 // TROUBLESHOOTING - REMOVE LATER!!
 $tries = 0;
@@ -132,13 +107,9 @@ if (!file_exists($tmptreefile)) {
 }
 
 // Generating the tree
-
 $tmptreepng = "/tmp/tree.png";
 $python = __DIR__ . "/directed_learning/bin/python3";
 $command2 = escapeshellcmd($python) . " phylo_tree.py " . escapeshellarg($tmptreefile) . " " . escapeshellarg($tmptreepng);
-// echo "<pre>";
-// echo $command2;
-// echo "</pre>";
 exec($command2);
 
 if (!file_exists($tmptreepng)) {
