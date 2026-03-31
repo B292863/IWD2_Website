@@ -44,11 +44,12 @@ if (file_exists($tmpfa) && is_readable($tmpfa)) {
 
 	// Creating the data table: https://www.w3schools.com/php/php_mysql_create_table.asp
 	// https://stackoverflow.com/questions/1650946/mysql-create-table-if-not-exists-error-1050
+	// Organism data type was changed to be more flexible and not break the table
 	try {
 		$mysql1 = "CREATE TABLE IF NOT EXISTS `$table` (
 		`id` VARCHAR(255) NOT NULL PRIMARY KEY,
 		`protein` VARCHAR(255)  NOT NULL,
-		`organism` VARCHAR(255)  NOT NULL,
+		`organism` TEXT  NOT NULL,
 		`sequence` TEXT  NOT NULL
 		);";
 		$pdo->exec($mysql1);
@@ -71,7 +72,7 @@ if (file_exists($tmpfa) && is_readable($tmpfa)) {
 	foreach ($lines as $line) {
 		$line = trim($line); // trim() = https://www.w3schools.com/php/func_string_trim.asp
 	
-		// Header line
+		// Header line: 
 		if (strpos($line, '>') === 0) {
 			if (!$line) continue;
 
@@ -91,14 +92,18 @@ if (file_exists($tmpfa) && is_readable($tmpfa)) {
 			// Obtain data from header
 			$seq = ''; // empty variable
 			$header = substr($line, 1);
-			$description = explode(" ",$header);
-			$id = $description[0];
-			$prot = $description[1];
-			$org_bits = array_slice($description,2,);
-			$org1 = implode(" ", $org_bits);
-			$org2 = str_replace("[","",$org1);
-			$org3 = str_replace("]","",$org2);
-			$org = str_replace("'", "\\'",$org3); // UPDATED
+			// Safely extract 
+			// Reference: https://www.w3schools.com/php/func_regex_preg_match.asp
+			if (preg_match('/^(\S+)\s+\[(.*?)]\s+\[(.*?)]/', $header, $hit)) {
+			//$description = explode(" ",$header);
+				$id = $hit[1];
+				$prot = $hit[2];
+				$org = $hit[3]; // array_slice($description,2,);
+			//$org1 = implode(" ", $org_bits);
+			//$org2 = str_replace("[","",$org1);
+			//$org3 = str_replace("]","",$org2);
+			//$org = str_replace("'", "\\'",$org3); // UPDATED
+			}
 		} else {
 			$seq .= $line; // get sequence data
 		}

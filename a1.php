@@ -14,15 +14,15 @@ include 'menuf.php';
 
 <div id="div1">
 <p>A sequence conservation plot represents the degree of conservation across residues in the inputted protein sequences</p>
+<p>Regions of elevated residue similarity represents homology, which can indicate something about the functional importance of a protein region</p>
 <--! FINISH -->
-<p>Regions of elevated residue similarity represents homology, which can indicate something about the </p>
-
+<p>For further analysis, the conservation plot below can be updated to increase or decrease the window size in which the sequence similarity is computed and averaged over. If the default (4) seems too noisy, the window size can be increased too smooth the shape of the conservation plot to more accurately identify conserved regions.</p>
 <?php
 $img = "/tmp/plotcon.1.png";
 
 echo<<<FORM_
 <form action="a1.php" method="post">
-  <p><b>Window Size:</b> <input type="text" name="win_size"></p>
+  <p><b>Window Size:</b> <input type="text" name="win_size"></p><p style="font-size: 10px;"><i>Default: 4</i></p>
   <input type="submit">
 </form>
 FORM_;

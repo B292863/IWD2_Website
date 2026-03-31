@@ -31,18 +31,31 @@ if len(ids) == 0:
     search_term = protein + " AND " + family + " NOT partial[Title] NOT PREDICTED[Title]"
     ids = Entrez.read(Entrez.esearch(db="protein", term=search_term, retmax='50'))['IdList']
 
+# If the search returned NO results, only print "EMPTY", which will be used to send a message to the user
 if len(ids) == 0:
     print("EMPTY")
 else:
 # Return multi-line FASTA file
     for acc in ids:
-        handle = Entrez.efetch(db="protein",id=acc,rettype="fasta",retmode="text")
-        record = SeqIO.read(handle, "fasta")
-        handle.close()
-
-        description = record.description
-        sequence = str(record.seq)
-        print(">" + description)
+        # Reference: https://biopython.org/docs/dev/Tutorial/chapter_seq_annot.html
+        #handle = Entrez.efetch(db="protein",id=acc,rettype="fasta",retmode="text")
+        gb_handle = Entrez.efetch(db="protein",id=acc,rettype="gb",retmode="text")
+        #print(gb_handle.read())
+        #record = SeqIO.read(handle, "fasta")
+        gb_record = SeqIO.read(gb_handle, "gb")
+        # Close the handles
+        #handle.close()
+        gb_handle.close()
+        
+        # To more easily handle unusual/non-standard description labels, generate the fasta headers manually
+        organism = gb_record.annotations['organism']
+        seq_id = gb_record.id
+        for feature in gb_record.features:
+            if feature.type.lower() in ['protein', 'cds'] and 'product' in feature.qualifiers:
+                prot = feature.qualifiers['product'][0]
+        description = '>' + seq_id + ' [' + prot + '] [' + organism + '] '
+        sequence = str(gb_record.seq)
+        print(description)
         print(sequence)
         #outfile.write(">" + description + "\n")
         #outfile.write(sequence + "\n")

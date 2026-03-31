@@ -1,8 +1,8 @@
 <?php
 session_start();
-// include 'redir.php';
 require_once 'login.php';
 
+// Unique ID for the browser and the session, to uniquely identify this individuals browser session
 // Reference: https://stackoverflow.com/questions/6500654/php-cookies-and-session-variables-and-ip-address
 // Reference: https://www.php.net/manual/en/reserved.variables.server.php
 $_SESSION['user'] = $_SERVER['HTTP_USER_AGENT'];
@@ -11,18 +11,8 @@ $_SESSION['session_id'] = session_id();
 
 include 'available_databases.php';
 
-// Initialize session variables
-// $_SESSION['selection'] = $_SESSION['selection'] ?? null;
-// $_SESSION['family'] = $_SESSION['family'] ?? null;
-// $_SESSION['protein'] = $_SESSION['protein'] ?? null;
-
-// $_SESSION['host'] = get_browser($_SERVER['REMOTE_HOST']);
-// $browsername = $browserinfo['browser'];
-// $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
-// echo $_SESSION['user'];
-
+// Overwrite the stylesheet for home page specific style options
 // Reference: https://www.w3schools.com/html/html_table_borders.asp
-// FINISH
 echo<<<_HEAD1
 <html>
 <body>
@@ -44,6 +34,7 @@ echo<<<_HEAD1
 </style>
 _HEAD1;
 include 'menuf.php';
+// The different data selection options submission boxes are generated here
 echo<<<_BODY1
 <div class="content">
 <div class="sub_box">
@@ -66,7 +57,7 @@ echo<<<_BODY1
 		<input type="submit">
 		</form>
 _BODY1;
-		
+		// If the NCBI search returned 0 results, return that as a message to the user		
 		if (!empty($_SESSION['message'])) {
 			echo $_SESSION['message'];
 			// Reset session variable
@@ -75,7 +66,8 @@ _BODY1;
 		echo "</div>";
 		echo "</td>";
 		echo "<td>";
-
+		
+		// Only allow users to see and use previous data searches if previous searches were actually made
 		// https://www.php.net/manual/en/function.empty.php
 		echo "<div id='div3'>";
 		if (!empty($_SESSION['previous_rows'])) { // Check if the first row exists

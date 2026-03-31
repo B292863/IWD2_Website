@@ -7,6 +7,7 @@
 <body>
 <?php
 require_once 'login.php';
+// Generating the linkouts in the sidebar; to be able to access webpages in the website
 echo <<<_MENU1
 <div class="sidenav">
     <a href="https://bioinfmsc8.bio.ed.ac.uk/~{$username}/iwd2_website/home.php"> Home </a>
