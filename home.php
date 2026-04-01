@@ -63,6 +63,13 @@ _BODY1;
 			// Reset session variable
 			unset($_SESSION['message']);
 		}
+
+		// If either a protein or a family was not specified, print a message to the screen
+                if (!empty($_SESSION['message1'])) {
+                        echo $_SESSION['message1'];
+                        // Reset session variable
+                        unset($_SESSION['message1']);
+                }
 		echo "</div>";
 		echo "</td>";
 		echo "<td>";

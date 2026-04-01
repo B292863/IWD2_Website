@@ -49,7 +49,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // Print the phylogenetic tree if the file exists
 // Reference: https://www.w3schools.com/tags/tag_meta.asp
-echo "<p>This phylogenetic tree is the inferred evolutionary relationship  between the input protein sequences based on sequence similarity</p>";
+echo "<p>This phylogenetic tree is the inferred evolutionary relationships between the input protein sequences based on sequence similarity</p>";
 echo "<p><b>Note:</b> Generating the underlying treefile that is used for creating the phylogenetic tree takes some time. Please wait around a minute for the visual to show up.</p>";
 echo "<div class='vert_layout'>";
 echo "<div>";

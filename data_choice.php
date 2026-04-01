@@ -6,7 +6,11 @@ require_once 'login.php';
 // Saves POST actions as SESSION variables to be used throughout the website
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-	if (isset($_POST['family']) || isset($_POST['protein'])) {
+	if (!isset($_POST['family']) || isset($_POST['protein'])) {
+		header("Location: home.php");
+		$_SESSION['message1'] = 'Please specify both a family and a protein';
+	}
+	if (isset($_POST['family']) && $_POST['family'] != '' && isset($_POST['protein']) && $_POST['protein'] != '') {
 		$_SESSION['selection'] = 'search';
 		$_SESSION['family'] = $_POST['family'];
 		$_SESSION['protein'] = $_POST['protein'];
