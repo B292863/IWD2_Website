@@ -25,7 +25,6 @@ echo <<<_MENU1
     </div>
     <a href="https://bioinfmsc8.bio.ed.ac.uk/~{$username}/iwd2_website/a3.php"> Motif Analysis </a>
     <a href="https://bioinfmsc8.bio.ed.ac.uk/~{$username}/iwd2_website/a4.php"> Phylogenetic Analysis </a>
-    <a href="https://bioinfmsc8.bio.ed.ac.uk/~{$username}/iwd2_website/a5.php"> InterPro Functionality </a>
     <a href="https://bioinfmsc8.bio.ed.ac.uk/~{$username}/iwd2_website/fasta.php"> Data Download </a>
 </div>
 _MENU1;

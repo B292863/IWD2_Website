@@ -96,11 +96,55 @@ fclose($pipes[2]);
 // Terminate the process
 proc_close($process);
 
+// Sets up the MSA download button, which allows users to download the MSA file in FASTA format
+echo <<<_DOWNLOAD
+<div class="content">
+<h4>Download multi-line MSA FASTA:</h4>
+<div>
+<form action="msa_download.php" method="post">
+        <button type="submit" class="button">Download Data</button>
+</form>
+</div>
+</div>
+_DOWNLOAD;
+
+// Set up form to select MSA view
+// Adapted from: https://www.w3schools.com/tags/att_input_type_radio.asp
+// Reference (Single Button): https://stackoverflow.com/questions/5419459/how-can-i-allow-only-one-radio-button-to-be-checked
+echo<<<FORM_
+<div class='content'>
+<form method="post">
+  <h4>Select MSA View:</h4>
+  <input type="radio" id="a" name="show" value="a">
+  <label for="a">All</label><br>
+  <input type="radio" id="i" name="show" value="i">
+  <label for="i">Identities between Sequences</label><br>
+  <input type="radio" id="n" name="show" value="n">
+  <label for="n">Non-Identities between Sequences</label><br>
+  <input type="radio" id="s" name="show" value="s">
+  <label for="s">Similarities between Sequences</label><br>
+  <input type="radio" id="d" name="show" value="d">
+  <label for="d">Disimilarities between Sequences</label><br>
+  <input type="submit" value="Change View">
+</form>
+</div>
+FORM_;
+
+// Select Default MSA View
+$show = 'a';
+
+// Change View
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+	if (isset($_POST['show'])) {
+		$show = $_POST['show'];
+	}
+}
+	
 $tmppmsa = "/tmp/prettyalign";
 
 // Generate a pretty alignment for printing
 // Reference: http://emboss.open-bio.org/rel/dev/apps/showalign.html
-$process_pretty_align = proc_open("showalign -sequence $tmpmsa -show=a -show=i -show=s -outfile $tmppmsa",
+$process_pretty_align = proc_open("showalign -sequence $tmpmsa -show=$show -outfile $tmppmsa",
 	$descriptorspec,
         $pipes);
 
@@ -114,17 +158,6 @@ fclose($pipes[2]);
 
 // Terminate the process
 proc_close($process_pretty_align);
-
-// Sets up the MSA download button, which allows users to download the MSA file in FASTA format
-echo <<<_DOWNLOAD
-<div class="content">
-<div>
-<form action="msa_download.php" method="post">
-        <button type="submit" class="button">Download Data</button>
-</form>
-</div>
-</div>
-_DOWNLOAD;
 
 // Print the MSA to the screen
 // Reference: https://www.w3schools.com/html/html_iframe.asp

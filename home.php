@@ -46,7 +46,7 @@ echo<<<_BODY1
 
 <table style="width:100%">
 	<tr>
-		<th><div class="div2"><h3><b>Option 1:</b> Make your Search</h3></div></th>
+		<th><div class="div2"><h3><b>Option 1:</b> Make a Search</h3></div></th>
 		<th><div class="div2"><h3><b>Option 2:</b> Select Previous Searches</h3></div></th>
 		<th><div class="div2"><h3><b>Option 3:</b> Use Example Dataset</h3></div></th>
 	</tr>

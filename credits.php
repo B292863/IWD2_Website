@@ -93,11 +93,11 @@ echo<<<_BODY1
 </hr>
 <hr>
 <h2>Citations:</h2>
-<ul>
-	<div style=“text-indent: -36px; padding-left: 36px;”>Rice P., Longden I. and Bleasby A. EMBOSS: The European Molecular Biology Open Software Suite. Trends in Genetics. 2000 16(6):276-277</div>
-	<div style=“text-indent: -36px; padding-left: 36px;”>Nguyen, L.-T., Schmidt, H. A., Von Haeseler, A., & Minh, B. Q. (2015). IQ-TREE: A Fast and Effective Stochastic Algorithm for Estimating Maximum-Likelihood Phylogenies. Molecular Biology and Evolution, 32(1), 268–274. https://doi.org/10.1093/molbev/msu300</div>
-	<div style=“text-indent: -36px; padding-left: 36px;”>Cock, P. J. A., Antao, T., Chang, J. T., Chapman, B. A., Cox, C. J., Dalke, A., Friedberg, I., Hamelryck, T., Kauff, F., Wilczynski, B., & De Hoon, M. J. L. (2009). Biopython: Freely available Python tools for computational molecular biology and bioinformatics. Bioinformatics, 25(11), 1422–1423. https://doi.org/10.1093/bioinformatics/btp163</div>
-</ul>
+	<div style="text-indent: -36px; padding-left: 36px;">Cock, P. J. A., Antao, T., Chang, J. T., Chapman, B. A., Cox, C. J., Dalke, A., Friedberg, I., Hamelryck, T., Kauff, F., Wilczynski, B., & De Hoon, M. J. L. (2009). Biopython: Freely available Python tools for computational molecular biology and bioinformatics. Bioinformatics, 25(11), 1422–1423. https://doi.org/10.1093/bioinformatics/btp163</div>
+	<div style="text-indent: -36px; padding-left: 36px;">Nguyen, L.-T., Schmidt, H. A., Von Haeseler, A., & Minh, B. Q. (2015). IQ-TREE: A Fast and Effective Stochastic Algorithm for Estimating Maximum-Likelihood Phylogenies. Molecular Biology and Evolution, 32(1), 268–274. https://doi.org/10.1093/molbev/msu300</div>
+	<div style="text-indent: -36px; padding-left: 36px;">Rice P., Longden I. and Bleasby A. EMBOSS: The European Molecular Biology Open Software Suite. Trends in Genetics. 2000 16(6):276-277</div>
+	<div style="text-indent: -36px; padding-left: 36px;">Sigrist, C. J. A. (2002). PROSITE: A documented database using patterns and profiles as motif descriptors. Briefings in Bioinformatics, 3(3), 265–274. https://doi.org/10.1093/bib/3.3.265</div>
+	<div style="text-indent: -36px; padding-left: 36px;">Zhang, C., Wang, Q., Li, Y., Teng, A., Hu, G., Wuyun, Q., & Zheng, W. (2024). The Historical Evolution and Significance of Multiple Sequence Alignment in Molecular Structure and Function Prediction. Biomolecules, 14(12), 1531. https://doi.org/10.3390/biom14121531</div>
 </hr>
 </div>
 </body>
