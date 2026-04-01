@@ -24,11 +24,16 @@ echo<<<_BODY1
 	<li><a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com">W3Schools</a></li>
 	<ul>
 		<li>This resource was used for quite a bit of the styling components, specific references are commented in the code files in the <a target="_blank" rel="noopener noreferrer" href="https://github.com/B292863/IWD2_Website">GitHub repository</a> (e.g., the styling of the side bar and the drop down menu are adapted from <a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/Css/tryit.asp?filename=trycss_template4">Template 4</a>)</li> 
-		<li>W3 was also used to identify and use the right syntax for a variety of HTML tags</li>
+		<li>W3 was used to identify and use the right syntax for a variety of HTML tags</li>
 		<ul>
 			<li><a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/html/html_iframe.asp">iframe tag</a></li>
 			<li><a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/tags/tag_meta.asp">meta tag</a></li>
 			<li><a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/html/html_table_borders.asp">Table borders</a></li>
+			<li>Radio Buttons</li>
+			<ul>
+				<li>Set up <a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/tags/att_input_type_radio.asp">buttons</a></li>
+				<li><a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/questions/5419459/how-can-i-allow-only-one-radio-button-to-be-checked">Do not allow multiple buttons</a> to be pressed at one time</li>
+			</ul>
 		</ul>
 		<li>Identifying PHP and PDO commands, functions, looping constructs, and verifying syntax:</li>
 		<ul>
@@ -51,26 +56,29 @@ echo<<<_BODY1
 		<li><a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/questions/6500654/php-cookies-and-session-variables-and-ip-address">PHP variables</a> and cookies</li>
 		<li><a target="_blank" rel="noopener noreferrer" href="https://www.php.net/manual/en/reserved.variables.server.php">SERVER array</a></li>
 	</ul>	
+        <li><a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/css//default.asp">CSS Style Sheet References</a></li>
+        <ul>
+                <li><a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/Css/tryit.asp?filename=trycss_template4">CSS Side Bar Style (Template 4)</a></li>
+        </ul>
+        <li>Error trapping functions and syntax in PHP:</li>
+        <ul>
+                <li><a target="_blank" rel="noopener noreferrer" href="https://code.tutsplus.com/php-isset-vs-empty-vs-is_null--cms-37162t#">envato tuts+</a></li>
+        </ul>
+        <li>For tab linkout functionality, a <a target="_blank" rel="noopener noreferrer" href="https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams">URL API</a> was used</li>
+        <li>Syntax in <a> tag to <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/questions/15551779/open-link-in-new-tab-or-window">open a website in a new tab.</a></li>
+        <li><a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/questions/67467383/php-parse-dict-output-from-python-script">Parsing Python dictionaries</a> in PHP</li>
 	<li><a target="_blank" rel="noopener noreferrer" href="https://biopython.org/docs/dev/Tutorial/chapter_msa.html">BioPython Modules</a></li>
 	<ul>
 		<li>Multiple Sequence Alignment Statistics</li>
+		<li>Drawing the <a target="_blank" rel="noopener noreferrer" href="https://biopython.org/wiki/Phylo">Phylogenetic Tree</a></li>
+		<li><a target="_blank" rel="noopener noreferrer" href="https://biopython.org/docs/1.76/api/Bio.Entrez.html">Entrez</a></li>
 	</ul>
 	<li>EMBOSS Tools:</li>
 	<ul>
 		<li><a target="_blank" rel="noopener noreferrer" href="https://emboss.sourceforge.net/apps/release/6.0/emboss/apps/plotcon.html">EMBOSS plotcon</a></li>
 		<li><a target="_blank" rel="noopener noreferrer" href="https://emboss.sourceforge.net/apps/cvs/emboss/apps/showalign.html">EMBOSS showalign</a></li>
 	</ul>
-	<li><a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/css//default.asp">CSS Style Sheet References</a></li>
-	<ul>
-		<li><a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/Css/tryit.asp?filename=trycss_template4">CSS Side Bar Style (Template 4)</a></li>
-	</ul>
-	<li>Error trapping functions and syntax in PHP:</li>
-	<ul>
-		<li><a target="_blank" rel="noopener noreferrer" href="https://code.tutsplus.com/php-isset-vs-empty-vs-is_null--cms-37162t#">envato tuts+</a></li>
-	</ul>
-	<li>For tab linkout functionality, a <a target="_blank" rel="noopener noreferrer" href="https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams">URL API</a> was used</li>
-	<li>Syntax in <a> tag to <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/questions/15551779/open-link-in-new-tab-or-window">open a website in a new tab.</a></li>
-	<li><a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/questions/67467383/php-parse-dict-output-from-python-script">Parsing Python dictionaries</a> in PHP</li>
+	<li>Multiple Sequence Alignment: <a target="_blank" rel="noopener noreferrer" href="https://github.com/hybsearch/clustalo">CLUSTALO</a></li>
 </ul>
 </hr>
 <hr>
