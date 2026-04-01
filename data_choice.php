@@ -7,7 +7,7 @@ require_once 'login.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	// If the user did not select both required inputs, return a message to the screen
-	if (!isset($_POST['family']) || isset($_POST['protein'])) {
+	if (!isset($_POST['family']) || !isset($_POST['protein'])) {
 		header("Location: home.php");
 		$_SESSION['message1'] = 'Please specify both a family and a protein';
 	}
