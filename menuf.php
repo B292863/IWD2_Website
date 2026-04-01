@@ -32,8 +32,7 @@ _MENU1;
 ?>
 <div class="content">
 <div class="head_box">
-<center><h1><b>Protein Family Analyzer!</b></h1></center>
-<center>Welcome to the Protein Family Analyzer, your one stop shop for all things Protein!</center>
+<center><h1><b>Protein Family Analyzer</b></h1></center>
 </div>
 </div>
 </body>

@@ -17,14 +17,40 @@ echo<<<_BODY1
 </div>
 <hr>
 <h2>Code Resources:</h2>
+
+<p>In addition to the following references, the code files in this website's <a target="_blank" rel="noopener noreferrer" href="https://github.com/B292863/IWD2_Website">GitHub repository</a> have commented references above the code where the resources were used.</p>
+
 <ul>
 	<li><a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com">W3Schools</a></li>
 	<ul>
 		<li>This resource was used for quite a bit of the styling components, specific references are commented in the code files in the <a target="_blank" rel="noopener noreferrer" href="https://github.com/B292863/IWD2_Website">GitHub repository</a> (e.g., the styling of the side bar and the drop down menu are adapted from <a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/Css/tryit.asp?filename=trycss_template4">Template 4</a>)</li> 
 		<li>W3 was also used to identify and use the right syntax for a variety of HTML tags</li>
-		<li>Some of the PHP commands (e.g., <a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/php/func_string_implode.asp">implode()</a>) were identified via W3.</li> 
+		<ul>
+			<li><a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/html/html_iframe.asp">iframe tag</a></li>
+			<li><a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/tags/tag_meta.asp">meta tag</a></li>
+			<li><a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/html/html_table_borders.asp">Table borders</a></li>
+		</ul>
+		<li>Identifying PHP and PDO commands, functions, looping constructs, and verifying syntax:</li>
+		<ul>
+			<li><a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/php/func_var_intval.asp">intval()</li>
+			<li><a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/php/php_looping_foreach.asp">foreach loop</a></li>
+			<li><a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/php/func_string_implode.asp">implode()</a></li>
+			<li>Return certain rows from MySQL searchs via <a target="_blank" rel="noopener noreferrer" href="https://www.ibm.com/docs/en/db2/11.5.x?topic=rqrs-fetching-rows-columns-from-result-sets">PDO</a></li>
+			<li><a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/php/php_operators.asp">PHP operators</a></li>
+		</ul>
+		<li>The JavaScript tab functionalities was adapted from W3 Schools</li>
+		<ul>
+			<li><a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/howto/howto_js_tabs.asp">Tabs</a></li>
+			<li><a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/howto/howto_js_vertical_tabs.asp">Vertical Tabs</a></li> 
+		</ul>
 	</ul>
 	<li><a target="_blank" rel="noopener noreferrer" href="https://www.php.net/manual/en/function.proc-open.php">Running Command Line Programs Through PHP</a></li>
+	<li><a target="_blank" rel="noopener noreferrer" href="https://www.php.net/manual/en/function.header.php">Cache Directives</a> in PHP</li>
+	<li>PHP session variables:</li>
+	<ul>
+		<li><a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/questions/6500654/php-cookies-and-session-variables-and-ip-address">PHP variables</a> and cookies</li>
+		<li><a target="_blank" rel="noopener noreferrer" href="https://www.php.net/manual/en/reserved.variables.server.php">SERVER array</a></li>
+	</ul>	
 	<li><a target="_blank" rel="noopener noreferrer" href="https://biopython.org/docs/dev/Tutorial/chapter_msa.html">BioPython Modules</a></li>
 	<ul>
 		<li>Multiple Sequence Alignment Statistics</li>
@@ -38,6 +64,13 @@ echo<<<_BODY1
 	<ul>
 		<li><a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/Css/tryit.asp?filename=trycss_template4">CSS Side Bar Style (Template 4)</a></li>
 	</ul>
+	<li>Error trapping functions and syntax in PHP:</li>
+	<ul>
+		<li><a target="_blank" rel="noopener noreferrer" href="https://code.tutsplus.com/php-isset-vs-empty-vs-is_null--cms-37162t#">envato tuts+</a></li>
+	</ul>
+	<li>For tab linkout functionality, a <a target="_blank" rel="noopener noreferrer" href="https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams">URL API</a> was used</li>
+	<li>Syntax in <a> tag to <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/questions/15551779/open-link-in-new-tab-or-window">open a website in a new tab.</a></li>
+	<li><a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/questions/67467383/php-parse-dict-output-from-python-script">Parsing Python dictionaries</a> in PHP</li>
 </ul>
 </hr>
 <hr>
