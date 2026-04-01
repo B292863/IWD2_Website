@@ -20,10 +20,10 @@ echo<<<_BODY1
 <h2>Flow Chart of Website Functionality</h2>
 
 <--! ADD UPDATED FLOW CHART -->
-<img src=ex_flowchart.png alt="Flow Chart" width="1000" height="600" class="center" usemap="#flowmap">
+<img src="flowchart_4.1.png" alt="Flow Chart" width="1000" height="600" class="center" usemap="#flowmap">
 <map name="flowmap">
   <area shape="rect" coords="600,450,650,500"
-     href="https://bioinfmsc8.bio.ed.ac.uk/~s2901468/website/home.php"
+     href="https://bioinfmsc8.bio.ed.ac.uk/~s2901468/iwd2_website/home.php"
      target="_blank" title="Home">
 </map>
 
@@ -38,6 +38,10 @@ echo<<<_BODY1
 <ul>
 <pre>**protein** AND **family** NOT partial[Title] NOT PREDICTED[Title]</pre>
 </ul>
+
+<p>The top 50 results are returned from the NCBI search.</p>
+
+<hr>
 
 <h2>Implementation</h2>
 
@@ -55,10 +59,15 @@ echo<<<_BODY1
 	<li>User selections are stored as session variables in PHP.</li>
 </ul>
 
+</hr>
+
+<hr>
+
 <h3>GitHub</h3>
 
 <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/B292863/IWD2_Website">Protein Family Analyzer GitHub Page</a></p>
 
+</hr>
 </div>
 </body>
 </html>
