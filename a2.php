@@ -251,7 +251,7 @@ echo "</div>";
 echo "</div>";
 echo <<<_TAIL
 <script>
-// Reference: https://www.w3schools.com/howto/howto_js_tabs.asp
+// Code adapted from: https://www.w3schools.com/howto/howto_js_tabs.asp
 function openTab(evt, tab_name) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
@@ -271,7 +271,7 @@ function openTab(evt, tab_name) {
 
 // Make sure that MSA is the default
 // Access tabs from urls 
-// Reference: mixture of online resources on JS and ChatGPT
+// Reference: mixture of online resources on JS (link above) and ChatGPT
 window.onload = function() {
   //Reference: https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
   const params = new URLSearchParams(window.location.search);
