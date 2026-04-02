@@ -124,7 +124,7 @@ echo<<<FORM_
   <input type="radio" id="s" name="show" value="s">
   <label for="s">Similarities between Sequences</label><br>
   <input type="radio" id="d" name="show" value="d">
-  <label for="d">Disimilarities between Sequences</label><br>
+  <label for="d">Dissimilarities between Sequences</label><br>
   <input type="submit" value="Change View">
 </form>
 </div>
