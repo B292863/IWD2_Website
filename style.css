@@ -171,15 +171,6 @@ img {
   height: 1500px;
 }
 
-/* #div2 {
-  border-radius: 25px;
-  background-color: AntiqueWhite;
-  padding: 20px;
-  width: 100%;
-  height: 20px;
-}
-*/
-
 .head_box {
   background: Tomato;
   /* border-radius: 12px; */
@@ -275,3 +266,18 @@ img {
   flex-shrink: 0;
 }
 
+/* Define vertical line for the navigation menus */
+/* Reference: https://www.w3schools.com/howto/howto_css_vertical_line.asp */
+.vert_line {
+  border-left: 6px solid Tomato;
+  height: 60px;
+}
+
+/* Navigation Table of Contents Styling - Keep on screen */
+/* Reference: https://stackoverflow.com/questions/14390979/how-do-i-keep-a-nav-bar-at-the-top-of-the-page */
+nav
+{
+   position: sticky;
+   top: 0px;
+   background: #fdfcf3;
+}

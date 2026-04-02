@@ -15,16 +15,22 @@ echo<<<_BODY1
 
 <p>This website hosts a suite of tools for analyzing a user selected protein family. </p>
 
+<nav>
+<p>Navigate to:</p>
+<div class='vert_line'>
+<ul>
+        <li><a href="#flow">Website Flowchart</a></li>
+	<li><a href="#imp">Implementation</a></li>
+	<li><a href="#git">GitHub</a></li>
+</ul>
+</div>
+</nav>
+
 <hr></hr>
 
-<h2>Flow Chart of Website Functionality</h2>
+<h2 id='flow'>Flow Chart of Website Functionality</h2>
 
-<img src="flowchart_4.1.png" alt="Flow Chart" width="1000" height="600" class="center" usemap="#flowmap">
-<map name="flowmap">
-  <area shape="rect" coords="600,450,650,500"
-     href="https://bioinfmsc8.bio.ed.ac.uk/~s2901468/iwd2_website/home.php"
-     target="_blank" title="Home">
-</map>
+<img src="flowchart_4.1.png" alt="Flow Chart" width="1000" height="600" class="center">
 
 <p>The NCBI search is conducted using the following format:</p>
 
@@ -42,7 +48,7 @@ echo<<<_BODY1
 
 <hr>
 
-<h2>Implementation</h2>
+<h2 id='imp'>Implementation</h2>
 
 <ul>
 	<li>The Protein Family Analyzer is implemented using MySQL as the underlying relational database management system and Apache as the web server.</li>
@@ -62,7 +68,7 @@ echo<<<_BODY1
 
 <hr>
 
-<h3>GitHub</h3>
+<h3 id='git'>GitHub</h3>
 
 <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/B292863/IWD2_Website">Protein Family Analyzer GitHub Page</a></p>
 

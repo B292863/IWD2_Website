@@ -15,8 +15,18 @@ echo<<<_BODY1
 <div class="sub_box">
 <center><h1> Statement of Credit</h1></center>
 </div>
+<nav>
+<p>Navigate to:</p>
+<div class='vert_line'>
+<ul>
+	<li><a href="#code">Code Resource</a></li>
+	<li><a href="#ai">AI Statement</a></li>
+	<li><a href="#cite">Citations</a></li>
+</ul>
+</div>
+</nav>
 <hr>
-<h2>Code Resources:</h2>
+<h2 id='code'>Code Resources:</h2>
 
 <p>In addition to the following references, the code files in this website's <a target="_blank" rel="noopener noreferrer" href="https://github.com/B292863/IWD2_Website">GitHub repository</a> have commented references above the code where the resources were used.</p>
 
@@ -34,6 +44,7 @@ echo<<<_BODY1
 				<li>Set up <a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/tags/att_input_type_radio.asp">buttons</a></li>
 				<li><a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/questions/5419459/how-can-i-allow-only-one-radio-button-to-be-checked">Do not allow multiple buttons</a> to be pressed at one time</li>
 			</ul>
+			<li>Opening a link in a <a target="_blank: rel="noopener noreferrer" href="https://www.w3schools.com/html/html_links.asp">new tab</a></li>
 		</ul>
 		<li>Identifying PHP and PDO commands, functions, looping constructs, and verifying syntax:</li>
 		<ul>
@@ -47,6 +58,11 @@ echo<<<_BODY1
 		<ul>
 			<li><a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/howto/howto_js_tabs.asp">Tabs</a></li>
 			<li><a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/howto/howto_js_vertical_tabs.asp">Vertical Tabs</a></li> 
+		</ul>
+		<li>For CSS Styling:</li>
+		<ul>
+			<li>Create a <a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/howto/howto_css_vertical_line.asp">vertical line</a> for page navigation menus</li>
+			<li>Allow navigation menus to <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/questions/14390979/how-do-i-keep-a-nav-bar-at-the-top-of-the-page">remain at the top of the screen</a> while scrolling</li>
 		</ul>
 	</ul>
 	<li><a target="_blank" rel="noopener noreferrer" href="https://www.php.net/manual/en/function.proc-open.php">Running Command Line Programs Through PHP</a></li>
@@ -66,7 +82,8 @@ echo<<<_BODY1
         </ul>
         <li>For tab linkout functionality, a <a target="_blank" rel="noopener noreferrer" href="https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams">URL API</a> was used</li>
         <li>Syntax in <a> tag to <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/questions/15551779/open-link-in-new-tab-or-window">open a website in a new tab.</a></li>
-        <li><a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/questions/67467383/php-parse-dict-output-from-python-script">Parsing Python dictionaries</a> in PHP</li>
+	<li><a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/questions/67467383/php-parse-dict-output-from-python-script">Parsing Python dictionaries</a> in PHP</li>
+	<li>Using <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=xHFzQ8QRjGU">sublinks</a> to easily navigate to different parts of a page.</li>
 	<li><a target="_blank" rel="noopener noreferrer" href="https://biopython.org/docs/dev/Tutorial/chapter_msa.html">BioPython Modules</a></li>
 	<ul>
 		<li>Multiple Sequence Alignment Statistics</li>
@@ -82,7 +99,7 @@ echo<<<_BODY1
 </ul>
 </hr>
 <hr>
-<h2>AI Statement:</h2>
+<h2 id='ai'>AI Statement:</h2>
 <p><a target="_blank" rel="noopener noreferrer" href="https://chatgpt.com/?utm_source=google&utm_medium=paid_search&utm_campaign=GOOG_C_SEM_GBR_Core_CHT_BAU_ACQ_PER_MIX_ALL_EMEA_GB_EN_052725&c_id=22601529282&c_agid=178867152694&c_crid=754784350981&c_kwid=kwd-1927227100722&c_ims=&c_pms=9046891&c_nw=g&c_dvc=c&gad_source=1&gad_campaignid=22601529282&gbraid=0AAAAA-I0E5crsS6IpNwd9wdtJeCeq7xfy&gclid=EAIaIQobChMIsZu47erHkwMVFZFQBh0LgBbfEAAYASAAEgKXHPD_BwE">ChatGPT</a> was used for general troubleshooting:</p>
 <ul>
 	<li>For some of the initial PDO connections.</li>
@@ -100,7 +117,7 @@ echo<<<_BODY1
 </ul>
 </hr>
 <hr>
-<h2>Citations:</h2>
+<h2 id='cite'>Citations:</h2>
 	<div style="text-indent: -36px; padding-left: 36px;">Cock, P. J. A., Antao, T., Chang, J. T., Chapman, B. A., Cox, C. J., Dalke, A., Friedberg, I., Hamelryck, T., Kauff, F., Wilczynski, B., & De Hoon, M. J. L. (2009). Biopython: Freely available Python tools for computational molecular biology and bioinformatics. Bioinformatics, 25(11), 1422–1423. https://doi.org/10.1093/bioinformatics/btp163</div>
 	<div style="text-indent: -36px; padding-left: 36px;">Nguyen, L.-T., Schmidt, H. A., Von Haeseler, A., & Minh, B. Q. (2015). IQ-TREE: A Fast and Effective Stochastic Algorithm for Estimating Maximum-Likelihood Phylogenies. Molecular Biology and Evolution, 32(1), 268–274. https://doi.org/10.1093/molbev/msu300</div>
 	<div style="text-indent: -36px; padding-left: 36px;">Rice P., Longden I. and Bleasby A. EMBOSS: The European Molecular Biology Open Software Suite. Trends in Genetics. 2000 16(6):276-277</div>

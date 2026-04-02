@@ -168,6 +168,8 @@ if (file_exists($tmppmsa)) {
 }
 
 // Set up the contents of the second tab (MSA Statistics)
+// Creates sublinks to navigate to different parts of the page
+// Reference [Navigate to parts of same page]: https://www.youtube.com/watch?v=xHFzQ8QRjGU
 echo "</div>";
 echo<<<_TAB2
 <div id="MSA_stats" class="tabcontent">
@@ -181,9 +183,19 @@ td {
 </style>
 <div class="content">
 <h2 align='center'>Multiple Sequence Alignment Statistics</h2>
-<p>Browse through the following: Amino Acid Substitution Matrix, Sequence Length Distribution, Gap Composition.</p>
+<nav>
+<p>Browse through the following:</p>
+<div class="vert_line">
+<nav>
+<ul>
+<li><a href="#aa_plot">Amino Acid Substitution Matrix</a></li>
+<li><a href="#seq_len">Sequence Length Distribution</a></li>
+<li><a href="#seq_gap">Gap Composition</a></li>
+</ul>
+</div>
+</nav>
 <hr>
-<h3 align='center'>Amino Acid Substitution Heatmap</h3>
+<h3 align='center' id="aa_plot">Amino Acid Substitution Heatmap</h3>
 _TAB2;
 // Added this to be specific
 $img = "/tmp/heatmap.png";
@@ -197,11 +209,13 @@ if (file_exists($img)) {
 	echo "</div>";
 	echo "<div>";
 	echo "<h3>Interpretation:</h3>";
-	echo "<p>This heatmap counts the number of amino acid substitutions (mismatches) across the MSA</p>";
-	echo "<p>The diagonal represents the positions in the MSA that were identical between a pair of sequences (matches)</p>";
-	echo "<p>Off-diagonals represent mismatches</p>";
-	echo "<p>Warmer colors represent a larger count of those matches</p>";
-	echo "<p>Notes:</p>";
+	echo "<p>This heatmap displays the number of amino acid matches and substitutions (mismatches) in the MSA.</p>";
+	echo "<ul>";
+	echo "<li>The <i>diagonal</i> represents the positions in the MSA that were identical between a pair of sequences (matches).</li>";
+	echo "<li><i>Off-diagonals</i> represent mismatches.</li>";
+	echo "</ul>";
+	echo "<p>Warmer (more red) colors represent a larger number of amino acid substitutions specified by the amino acid in the row and column.</p>";
+	echo "<p><b>Notes:</b></p>";
 	echo "<ul>";
 	echo "<li>Amino acids do not occur at equal frequencies, note the larger counts of certain amino acids in the diagonal (e.g., Leucine (L) is the most abundant amino acid).</li>";
 	echo "<li>There are certain mismatches that are more or less common depending on the input set of proteins, which can be identified by cells in the heatmap that are <u>less blue</u>.</li>";
@@ -219,7 +233,7 @@ echo "</hr>";
 
 echo "<hr>";
 
-echo "<h3 align='center'>Sequence Length Distribution</h3>";
+echo "<h3 align='center' id='seq_len'>Sequence Length Distribution</h3>";
 
 // Print the Sequence Length Distribution Histogram if it exists
 if (file_exists($lenimg)) {
@@ -251,7 +265,7 @@ $gapimg = "/tmp/gaps_hist.png";
 echo "</hr>";
 
 echo "<hr>";
-echo "<h3 align='center'>Gap Distribution</h3>";
+echo "<h3 align='center' id='seq_gap'>Gap Distribution</h3>";
 
 // Print the Gaps Content Distribution Histogram if it exists
 if (file_exists($gapimg)) {
