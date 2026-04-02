@@ -15,10 +15,8 @@ echo<<<HEAD_
 <p> </p>
 
 <div id="div1">
-<p>A sequence conservation plot represents the degree of conservation across residues in the inputted protein sequences</p>
-<p>Regions of elevated residue similarity represents homology, which can indicate something about the functional importance of a protein region</p>
-<--! FINISH -->
-<p>For further analysis, the conservation plot below can be updated to increase or decrease the window size in which the sequence similarity is computed and averaged over. If the default (4) seems too noisy, the window size can be increased too smooth the shape of the conservation plot to more accurately identify conserved regions.</p>
+<p>A sequence conservation plot represents the degree of conservation across residues in the inputted protein sequences.</p>
+<p>For further analysis, the conservation plot can be altered by increasing or decreasing the window size in which the sequence similarity is computed and averaged over. If the default (4) seems too noisy, the window size can be increased to smooth the conservation plot to more accurately identify conserved regions.</p>
 HEAD_;
 
 // Assign the name of the conservation plot output to a variable
