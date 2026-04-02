@@ -18,7 +18,7 @@ if (isset ($_SESSION['selection'])) {
                 $data = 'Example_Data';
         }
 } else {
-	header("Location: https://bioinfmsc8.bio.ed.ac.uk/~{$username}/website/home.php");
+	header("Location: https://bioinfmsc8.bio.ed.ac.uk/~{$username}/iwd2_website/home.php");
 	exit();
 }
 
