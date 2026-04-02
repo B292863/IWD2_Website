@@ -1,6 +1,5 @@
 <?php
 session_start();
-// require_once 'login.php';
 require_once 'redir.php';
 
 // Purpose: conduct search through NCBI, add the data to a MySQL data table
@@ -19,11 +18,11 @@ if (
 $tmpfa = '/tmp/search_fasta.fa';
 if (file_exists($tmpfa)) {
 	unlink($tmpfa);
+
 }
 
 if (isset($_SESSION['selection']) && $_SESSION['selection'] === 'search') {
 
-	// echo "Running NCBI search for " . $_SESSION['protein'] . " in " . $_SESSION['family'];
 
 	// NCBI Search
 	$descriptorspec = array(
@@ -38,24 +37,23 @@ if (isset($_SESSION['selection']) && $_SESSION['selection'] === 'search') {
 	$script = __DIR__ . "/data_extractor.py";
 	$python = __DIR__ . "/directed_learning/bin/python3";
 
-	// Troubleshooting
-	// var_dump($family);
-	// var_dump($protein);
-	//$family = "Homo sapiens";
-        //$protein = "insulin";
-
-	// Alternate Option exec(): https://www.geeksforgeeks.org/php/php-shell_exec-vs-exec-function/
-	// $command = escapeshellcmd("$python data_extractor.py 'Homo sapiens' 'insulin'");
-	$command = escapeshellcmd($python) . " data_extractor.py " . $family . " " . $protein; 
+	// Conduct non-stringent search
+	if (!empty($_SESSION['stringent'])) {
+		$stringent = escapeshellarg($_SESSION['stringent']);
+		$command = escapeshellcmd($python) . " data_extractor.py " . $family . " " . $protein . " " . $stringent;
+		// Unset the 'stringent' variable after the search has been made
+		// unset($_SESSION['stringent']);
+	} else {	
+		// Conduct stringent search
+		// Alternate Option exec(): https://www.geeksforgeeks.org/php/php-shell_exec-vs-exec-function/
+		$command = escapeshellcmd($python) . " data_extractor.py " . $family . " " . $protein; 
+	}
 
 	$ncbi = shell_exec($command);
-	// echo "<pre>";
-	// echo $ncbi;
-	// echo "</pre>";
 	file_put_contents($tmpfa, $ncbi);
-	
-	// Check file was generated: https://www.w3schools.com/php/func_filesystem_file_exists.asp
-        // https://stackoverflow.com/questions/43027624/php-wait-for-file-to-exist
+
+	// Check that file was generated: https://www.w3schools.com/php/func_filesystem_file_exists.asp
+	// https://stackoverflow.com/questions/43027624/php-wait-for-file-to-exist
 	$start_time = time();
         while (!file_exists($tmpfa)) {
                 // Kill if takes too long
@@ -64,9 +62,17 @@ if (isset($_SESSION['selection']) && $_SESSION['selection'] === 'search') {
                 }
 		sleep(1);
 	}
-	// var_dump(trim($ncbi));
-	// exit();
-	if (trim($ncbi) == "EMPTY") {
+	
+	// If the number of requests to NCBI have been exceeded return this message to the  
+	if (is_null($ncbi)) {
+		$_SESSION['message'] = "NCBI requests have been exceeded. Please try again later.";
+		header("Location: home.php");
+		exit();
+	}
+
+	// Check if the search returned no results
+	// Reference: https://www.php.net/manual/en/function.is-null.php
+	if (trim($ncbi) == "EMPTY") { //is_null($ncbi) || 
 		$_SESSION['message'] = "NCBI search generated 0 results";
 		header("Location: home.php");
 		exit();

@@ -32,7 +32,15 @@ if (file_exists($tmpfa) && is_readable($tmpfa)) {
 	$str_family = str_replace("-", "", $str_family);
 	$str_pro = str_replace(" ", "", $protein);
 	$str_pro = str_replace("-", "", $str_pro);
-	$table = $str_family . "_" . $str_pro;
+	// Set unique names to stringent/non stringent search so same search term will not be overwritten
+	if (isset($_SESSION['stringent']) && !empty($_SESSION['stringent'])) {
+		$table = $str_family . "_" . $str_pro . "_gensearch";
+		// Unset the 'stringent' variable after the search has been made
+                unset($_SESSION['stringent']);
+	}
+	else {
+		$table = $str_family . "_" . $str_pro;
+	}
 
 	// Removing the data table if it already exists
 	try {
@@ -82,8 +90,6 @@ if (file_exists($tmpfa) && is_readable($tmpfa)) {
 				try {
 					$mysql2 = "INSERT INTO `$table` VALUES ('$id', '$prot', '$org', '$seq');";
 					$pdo->exec($mysql2);
-					// Troubleshooting
-					// echo "New record succesfully added";
 				} catch (PDOException $e) {
 					echo $mysql2 . "<br>" . $e->getMessage();
 				}
@@ -95,14 +101,11 @@ if (file_exists($tmpfa) && is_readable($tmpfa)) {
 			// Safely extract 
 			// Reference: https://www.w3schools.com/php/func_regex_preg_match.asp
 			if (preg_match('/^(\S+)\s+\[(.*?)]\s+\[(.*?)]/', $header, $hit)) {
-			//$description = explode(" ",$header);
-				$id = $hit[1];
-				$prot = $hit[2];
-				$org = $hit[3]; // array_slice($description,2,);
-			//$org1 = implode(" ", $org_bits);
-			//$org2 = str_replace("[","",$org1);
-			//$org3 = str_replace("]","",$org2);
-			//$org = str_replace("'", "\\'",$org3); // UPDATED
+				// Ensure that all the entries can be safely put into a MySQL table
+				$id = str_replace("'","\\'",$hit[1]);
+				$prot = str_replace("'","\\'",$hit[2]);
+				$org = str_replace("'","\\'",$hit[3]);
+	
 			}
 		} else {
 			$seq .= $line; // get sequence data
@@ -118,10 +121,9 @@ if (file_exists($tmpfa) && is_readable($tmpfa)) {
 			// echo "New record succesfully added";
 		} catch (PDOException $e) {
 			echo $mysql2 . "<br>" . $e->getMessage();
+
 		}
 	}
-
-	// echo "success";
 
 	// Add the info into the metadata table
 	// https://www.geeksforgeeks.org/php/how-to-extract-day-month-and-year-in-php/

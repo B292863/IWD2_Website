@@ -17,12 +17,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$_SESSION['selection'] = 'search';
 		$_SESSION['family'] = $_POST['family'];
 		$_SESSION['protein'] = $_POST['protein'];
+		if (isset($_POST['string'])) {
+			$_SESSION['stringent'] = 'stringent';
+		}
 		header("Location: search.php");
 		exit();
 	} 
 	// If the user selected one of the previous search options, that data selection is saved
 	if (isset($_POST['old_search'])) {
 		$_SESSION['selection'] = 'old';
+		$_SESSION['previous'] = $_POST['table_name'];
 		header("Location: home.php");
 		exit();
 	}

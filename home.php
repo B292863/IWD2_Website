@@ -57,6 +57,10 @@ echo<<<_BODY1
 		<td><div id="div3"><form action="data_choice.php" method="post">
 			<p><b>Family (Taxonomic):</b> <input type="text" name="family"><br> <i>e.g., Aves</i></p>
 			<p><b>Protein Name:</b> <input type="text" name="protein"><br> <i>e.g., Glucose-6-Phosphatase</i></p>
+		<!-- Reference: https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_input_type_checkbox -->
+		<input type="checkbox" id="string" name="string" value="string">
+		<label for="string">Conduct NCBI Search without Tags (Less Stringent)</label><br>
+		<p></p>
 		<input type="submit">
 		</form>
 _BODY1;
@@ -72,7 +76,8 @@ _BODY1;
                         echo $_SESSION['message1'];
                         // Reset session variable
                         unset($_SESSION['message1']);
-                }
+		}
+
 		echo "</div>";
 		echo "</td>";
 		echo "<td>";
@@ -81,19 +86,18 @@ _BODY1;
 		// https://www.php.net/manual/en/function.empty.php
 		echo "<div id='div3'>";
 		if (!empty($_SESSION['previous_rows'])) { // Check if the first row exists
+			echo "<p><b>Previous Search Datasets:</b></p>";
+			echo '<form action="data_choice.php" method="post">';
 			foreach ($_SESSION['previous_rows'] as $row) {
 				if (!empty($row)) {
 					echo "<div>";
-					echo "<p><b>Previous Search Dataset:</b>";
-					echo htmlspecialchars($row['family']) . " " . htmlspecialchars($row['protein']);
-					$_SESSION['previous'] = $row['table_name'];
-					echo '<form action="data_choice.php" method="post">';
-						echo '<button type="submit" name="old_search">Previous Search</button>';
-					echo "</form>";
-					echo "</p>";
-					echo "</div>";
+					echo '<input type="radio" id="t" name="table_name" value="'. htmlspecialchars($row['table_name']) .'">';
+					echo '<label for="t">' . htmlspecialchars($row['family']) . " " . htmlspecialchars($row['protein']) . '</label><br>';
 				}
 			}
+			echo "<p></p>";
+			echo '<button type="submit" name="old_search">Use Previous Search</button>';
+			echo "</form>";
 		} else {
 			echo "No previous database to select from";
 		}
