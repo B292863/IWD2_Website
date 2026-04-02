@@ -100,6 +100,7 @@ echo<<<_BODY1
 	<li>This page allows users to examine the data by organism, sequence ID, and the sequence itself.</li>
 	<li>The requested input data can be downloaded as a multi-line FASTA file from this page, allowing any external analyses</li>
 </ul>
+<p><b>Note:</b> Some of these pages may take a little while to load, particularly if the input protein sequences are very long.</p>
 </body>
 </html>
 </div>
