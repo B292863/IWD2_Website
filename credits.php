@@ -115,6 +115,7 @@ echo<<<_BODY1
 	<li>To identify why the CSS stylesheet was only sometimes resetting the style for particular elements</li>
 	<li>Used to find specific resources when I couldn't find the exact fix for particularly tricky bugs when troubleshooting via Google searches</li>
 	<li>Used to help safely transfer all files required to run this webpage from a personal GitHub account to an anonymized GitHub</li>
+	<li>Used to help manage PHP session and session variables</li>
 </ul>
 </hr>
 <hr>

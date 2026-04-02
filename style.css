@@ -37,7 +37,6 @@ input[type="submit"] {
 .tabcontent {
   display: none;
   padding: 20px;
-  /* margin-left: 200px; */
 }
 
 /* Logic Reference: https://dev.to/iamschulz/writing-logic-in-css-3ig0 */
@@ -53,7 +52,6 @@ input[type="submit"] {
   cursor: pointer;
   transition: 0.3s;
   font-size: 17px;
-  /* margin-left: 200px; */
   padding-left: 20px;
 }
 

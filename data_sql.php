@@ -1,14 +1,15 @@
 <?php
 session_start();
 require_once 'login.php';
-// require_once 'redir.php';
 
 // Purpose: Add the data to a MySQL data table
 
+// Set up filename and take relevant session variables
 $tmpfa = '/tmp/search_fasta.fa';
 $family = $_SESSION['family'];
 $protein = $_SESSION['protein'];
 
+// Make sure that the search fasta file (NCBI) exists (search successful)
 if (file_exists($tmpfa) && is_readable($tmpfa)) {
 
 	// Adding data to MySQL
@@ -75,8 +76,9 @@ if (file_exists($tmpfa) && is_readable($tmpfa)) {
 	$org = '';
 	$seq = '';
 
-	$lines = file($tmpfa); //or die("Unable to open file)
-
+	$lines = file($tmpfa);
+	
+	// For loop to extract all the data from each line in the fasta file
 	foreach ($lines as $line) {
 		$line = trim($line); // trim() = https://www.w3schools.com/php/func_string_trim.asp
 	
@@ -117,8 +119,6 @@ if (file_exists($tmpfa) && is_readable($tmpfa)) {
 		try {
 			$mysql2 = "INSERT INTO `$table` VALUES ('$id', '$prot', '$org', '$seq');";
 			$pdo->exec($mysql2);
-			// Troubleshooting statement
-			// echo "New record succesfully added";
 		} catch (PDOException $e) {
 			echo $mysql2 . "<br>" . $e->getMessage();
 
@@ -136,15 +136,13 @@ if (file_exists($tmpfa) && is_readable($tmpfa)) {
 	try {
 		$metasql = "INSERT INTO `tables` VALUES ('$table', '$user', '$family', '$protein', '$date', '$session_id');";
                 $pdo->exec($metasql);
-                // Troubleshooting comment
-                // echo "$table created successfully";
         } catch (PDOException $e) {
                 echo $metasql . "<br>" . $e->getMessage();
 	}
 
 	$pdo = null;
 	
-// Set the session variable table
+// Set the session variable table and return to home page
 	$_SESSION['table'] = $table;
 	$_SESSION['search_message'] = 'Results Generated!';
 	header("Location: home.php");

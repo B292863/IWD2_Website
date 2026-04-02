@@ -29,7 +29,7 @@ echo<<<_HEAD1
   background-color: AntiqueWhite; 
   padding: 20px;
   width: 100%;
-  height: 500px;
+  height: 270px;
 }
 </style>
 _HEAD1;
