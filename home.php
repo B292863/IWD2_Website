@@ -41,8 +41,11 @@ echo<<<_BODY1
 <center><h1>Home Page</h1></center>
 </div>
 <p> </p>
+
 <hr></hr>
 <h2>Data Selection: </h2>
+
+<p><i><b>Note:</b> If a selection has not been made, attempting to access the functionality pages (Conservation Analysis, MSA, Phylogenetic Analysis, Data Download) will redirect the user back to the home page.</i></p>
 
 <table style="width:100%">
 	<tr>
