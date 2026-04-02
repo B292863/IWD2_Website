@@ -100,6 +100,10 @@ echo<<<_BODY1
 		<li><a target="_blank" rel="noopener noreferrer" href="https://emboss.sourceforge.net/apps/cvs/emboss/apps/showalign.html">EMBOSS showalign</a></li>
 	</ul>
 	<li>Multiple Sequence Alignment: <a target="_blank" rel="noopener noreferrer" href="https://github.com/hybsearch/clustalo">CLUSTALO</a></li>
+	<li>Matplotlib</li>
+	<ul>
+		<li><a target="_blank" rel="noopener noreferrer" href="https://matplotlib.org/stable/gallery/pie_and_polar_charts/pie_and_donut_labels.html">Pie Chart</a></li>
+	</ul>
 </ul>
 </hr>
 <hr>
