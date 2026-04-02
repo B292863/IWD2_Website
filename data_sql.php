@@ -28,7 +28,8 @@ if (file_exists($tmpfa) && is_readable($tmpfa)) {
 	} catch (PDOException $e) {
         	die("Database error " . $e->getMessage());
 	}
-
+	
+	// Create the table name
 	$str_family = str_replace(" ", "", $family);
 	$str_family = str_replace("-", "", $str_family);
 	$str_pro = str_replace(" ", "", $protein);
@@ -62,8 +63,6 @@ if (file_exists($tmpfa) && is_readable($tmpfa)) {
 		`sequence` TEXT  NOT NULL
 		);";
 		$pdo->exec($mysql1);
-		// Troubleshooting comment
-		// echo "$table created successfully";
 	} catch (PDOException $e) {
 		echo "Error creating table: " . $mysql1 . "<br>" . $e->getMessage();
 	}
@@ -132,7 +131,7 @@ if (file_exists($tmpfa) && is_readable($tmpfa)) {
 	$date = $datetime->format('Y-m-d H:i:s');
 	$user = $_SESSION['user'];
 	$session_id = $_SESSION['session_id'];
-	
+
 	try {
 		$metasql = "INSERT INTO `tables` VALUES ('$table', '$user', '$family', '$protein', '$date', '$session_id');";
                 $pdo->exec($metasql);
@@ -148,6 +147,4 @@ if (file_exists($tmpfa) && is_readable($tmpfa)) {
 	header("Location: home.php");
 	exit();
 }
-
-// FINISH!!
 ?>
