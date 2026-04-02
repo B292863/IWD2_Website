@@ -2,6 +2,7 @@
 require_once 'login.php';
 require_once 'redir.php';
 
+// Type of file generated
 header('Content-Type: text/plain');
 header('Content-Disposition: attachment; filename=msa.fa');
 

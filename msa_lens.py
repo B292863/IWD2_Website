@@ -24,6 +24,7 @@ data = SeqIO.to_dict(SeqIO.parse(fa, "fasta"))
 # Protein list
 proteins = IUPACData.protein_letters
 
+# Initialize relevant variables
 lengths = []
 gaps = []
 max_length = 0
@@ -32,9 +33,9 @@ max_length_id = None
 min_length = sys.maxsize
 min_length_id = None
 
+# Calculate lengths
 # Reference: https://biopython.org/docs/dev/Tutorial/chapter_msa.html
 for alignment in AlignIO.parse(fa, "fasta"):
-    #print("Alignment length %i" % alignment.get_alignment_length())
     for record in alignment:
         index1 = record.description.find('[')
         index2 = record.description.find(']')
@@ -52,11 +53,14 @@ for alignment in AlignIO.parse(fa, "fasta"):
 
 avg_len = f'{sum(lengths)/len(lengths):.2f}'
 
+# Create dictionary with values
 vals = {'Average Length': avg_len, 'Max Length': max_length, 'Max Length ID': max_length_id, 'Min Length': min_length, 'Min Length ID': min_length_id}
 
+# Print values
 # Reference: https://stackoverflow.com/questions/67467383/php-parse-dict-output-from-python-scriput
 print(json.dumps(vals, indent=None, separators=(',', ':')))
 
+# Generate plot
 plt.figure(figsize=(10,8))
 plt.hist(lengths, color="#CD5C5C", bins=30)
 plt.ylabel('Counts')

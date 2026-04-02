@@ -15,12 +15,16 @@ if (
 	exit();
 }
 
+# Name and location of output fasta
 $tmpfa = '/tmp/search_fasta.fa';
+
+# Remove old files so it won't be used in analyses
 if (file_exists($tmpfa)) {
 	unlink($tmpfa);
 
 }
 
+# Only run the search if the user selected search options
 if (isset($_SESSION['selection']) && $_SESSION['selection'] === 'search') {
 
 
@@ -48,7 +52,8 @@ if (isset($_SESSION['selection']) && $_SESSION['selection'] === 'search') {
 		// Alternate Option exec(): https://www.geeksforgeeks.org/php/php-shell_exec-vs-exec-function/
 		$command = escapeshellcmd($python) . " data_extractor.py " . $family . " " . $protein; 
 	}
-
+	
+	// Run command and put outputs in a file
 	$ncbi = shell_exec($command);
 	file_put_contents($tmpfa, $ncbi);
 

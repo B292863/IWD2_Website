@@ -24,6 +24,7 @@ data = SeqIO.to_dict(SeqIO.parse(fa, "fasta"))
 # Protein list
 proteins = IUPACData.protein_letters
 
+# Initialize relevant variables
 gaps = []
 max_gaps = 0
 max_gap_id = None
@@ -31,10 +32,9 @@ max_gap_id = None
 min_gaps = sys.maxsize
 min_gap_id = None
 
-
+# Find the number of gaps for each protein sequence
 # Reference: https://biopython.org/docs/dev/Tutorial/chapter_msa.html
 for alignment in AlignIO.parse(fa, "fasta"):
-    #print("Alignment length %i" % alignment.get_alignment_length())
     for record in alignment:
         index1 = record.description.find('[')
         index2 = record.description.find(']')
@@ -52,9 +52,11 @@ avg_gap = f'{sum(gaps)/len(gaps):.2f}'
 
 gap_vals = {'Average Number of Gaps': avg_gap, 'Max Number of Gaps': max_gaps, 'Max Gaps ID': max_gap_id, 'Min Number of Gaps': min_gaps, 'Min Gaps ID': min_gap_id}
 
+# Print the data
 # Reference: https://stackoverflow.com/questions/67467383/php-parse-dict-output-from-python-scriput
 print(json.dumps(gap_vals, indent=None, separators=(',', ':')))
 
+# Generate the plot
 plt.figure(figsize=(10,8))
 plt.hist(gaps, color="#CD5C5C", bins=30)
 plt.ylabel('Counts')

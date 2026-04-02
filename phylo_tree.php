@@ -16,7 +16,6 @@ if (!$data) {
 $img = "/tmp/tree.png";
 
 // Making the connection
-
 try {
         $pdo = new PDO(
                 "mysql:host=$hostname;dbname=$database",
@@ -112,6 +111,7 @@ $python = __DIR__ . "/directed_learning/bin/python3";
 $command2 = escapeshellcmd($python) . " phylo_tree.py " . escapeshellarg($tmptreefile) . " " . escapeshellarg($tmptreepng);
 exec($command2);
 
+# Make sure that the image was generated
 if (!file_exists($tmptreepng)) {
     die("Tree NOT generated.");
 }
