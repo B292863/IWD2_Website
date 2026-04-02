@@ -2,22 +2,24 @@
 require_once 'login.php';
 require_once 'redir.php';
 
+// Purpose: generate the gap composition histogram image
+
 $img = "/tmp/gaps_hist.png"; // generate a new filename each time to get around caching issues
 
-// echo "<pre>";
-// echo $img;
-// echo "</pre>";
 
+// Remove old file so it won't get printed to the screen
 if (file_exists($img)) {
         unlink($img);
 }
 
+// If no data exists, print this error message to the screen
 if (!$data) {
         echo "<h2 align='center'>Gap Composition Statistics</h2>";
         echo "<p align='center'>No data has been selected yet!</p>";
         exit();
 }
 
+// Make connection to database
 try {
         $pdo = new PDO(
                 "mysql:host=$hostname;dbname=$database",
@@ -37,9 +39,6 @@ try {
 $query = "SELECT * FROM $data";
 $stmt = $pdo->query($query);
 $rows = $stmt->fetchAll();
-
-// https://www.w3schools.com/php/func_var_var_dump.asp
-//var_dump($rows);
 
 // Generate the FASTA string (stdin) [by appending each row to the string]
 $fasta_stdin = "";
@@ -76,17 +75,11 @@ fclose($pipes[2]);
 proc_close($process1);
 
 // Generating the amino acid heatmap
+// Reference json_decode(): https://www.w3schools.com/PhP/func_json_decode.asp
 $python = __DIR__ . "/directed_learning/bin/python3";
 $command = escapeshellcmd($python) . " msa_gaps.py " . escapeshellarg($tmpmsa) . " " . escapeshellarg($img);
-// echo "<pre>";
-// echo $command;
-// echo "</pre>";
 exec($command, $outgap, $errgap);
-$_SESSION['gap_vals'] = json_decode($outgap[0], true); // implode("\n", $out),
-// echo "<pre>";
-// echo var_dump($_SESSION['gap_vals']);
-// echo "</pre>";
-//file_put_contents($img, $heat)
+$_SESSION['gap_vals'] = json_decode($outgap[0], true);
 
 // Print image to the screen
 $img = "/tmp/gaps_hist.png";;

@@ -54,6 +54,8 @@ echo<<<_BODY1
 			<li><a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/php/func_string_implode.asp">implode()</a></li>
 			<li>Return certain rows from MySQL searchs via <a target="_blank" rel="noopener noreferrer" href="https://www.ibm.com/docs/en/db2/11.5.x?topic=rqrs-fetching-rows-columns-from-result-sets">PDO</a></li>
 			<li><a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/php/php_operators.asp">PHP operators</a></li>
+			<li><a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/PhP/func_json_decode.asp">json_decode()</a></li>
+			<li><a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/php/func_string_chunk_split.asp">chunk_split()</a></li>
 		</ul>
 		<li>The JavaScript tab functionalities was adapted from W3 Schools</li>
 		<ul>

@@ -4,20 +4,19 @@ require_once 'redir.php';
 
 $img = "/tmp/lens_hist.png"; // generate a new filename each time to get around caching issues
 
-// echo "<pre>";
-// echo $img;
-// echo "</pre>";
-
+// If old file exists, remove it so it won't be printed to the screen
 if (file_exists($img)) {
         unlink($img);
 }
 
+// Print this message if no data exists
 if (!$data) {
         echo "<h2 align='center'>Sequence Length Statistics</h2>";
         echo "<p align='center'>No data has been selected yet!</p>";
         exit();
 }
 
+// Connect to database
 try {
         $pdo = new PDO(
                 "mysql:host=$hostname;dbname=$database",
@@ -37,9 +36,6 @@ try {
 $query = "SELECT * FROM $data";
 $stmt = $pdo->query($query);
 $rows = $stmt->fetchAll();
-
-// https://www.w3schools.com/php/func_var_var_dump.asp
-//var_dump($rows);
 
 // Generate the FASTA string (stdin) [by appending each row to the string]
 $fasta_stdin = "";
@@ -63,7 +59,6 @@ fwrite($pipes[0], $fasta_stdin);
 fclose($pipes[0]);
 
 // Capture the alignment
-// plotcon needs MSA in a file, doesn't take stdin
 $msa = stream_get_contents($pipes[1]);
 $tmpmsa = "/tmp/align.fa";
 file_put_contents($tmpmsa, $msa);
@@ -75,20 +70,13 @@ fclose($pipes[2]);
 // Terminate the process
 proc_close($process1);
 
-// Generating the amino acid heatmap 
+// Generating the sequence length plot
 $python = __DIR__ . "/directed_learning/bin/python3";
 $command = escapeshellcmd($python) . " msa_lens.py " . escapeshellarg($tmpmsa) . " " . escapeshellarg($img);
-// echo "<pre>";
-// echo $command;
-// echo "</pre>";
 exec($command, $out, $err);
 // Extracting Data
 // Reference: https://stackoverflow.com/questions/67467383/php-parse-dict-output-from-python-script
 $_SESSION['vals'] = json_decode($out[0], true);
-// echo "<pre>";
-//echo print_r($_SESSION['vals']);
-// echo "</pre>";
-//file_put_contents($img, $heat)
 
 // Print image to the screen
 $img = "/tmp/lens_hist.png";;

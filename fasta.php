@@ -51,6 +51,7 @@ $query = "SELECT * FROM $data";
 $stmt = $pdo->query($query);
 $rows= $stmt->fetchAll();
 
+// Display the data and download button
 echo<<<_HTML1
 <div class='content'>
 <div class="sub_box">

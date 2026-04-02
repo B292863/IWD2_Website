@@ -4,6 +4,7 @@ require_once 'redir.php';
 
 // Purpose: Generate the Conservation Plot
 
+// Variable for output image name and location
 $img = "/tmp/plotcon.1.png";
 
 // Ensuring that an old conservation plot will not be sent to the website
@@ -78,6 +79,7 @@ proc_close($process1);
 // Get the selected window size
 $win_size = $_SESSION['win_size'];
 
+// Run plotcon to generate conservation plot
 $tmpimg = "/tmp/plotcon";
 $process2 = proc_open("plotcon -sequences $tmpmsa -graph png -winsize $win_size -goutfile $tmpimg",
         $descriptorspec,

@@ -28,7 +28,8 @@ else:
     # This search term ensures that the returned entries are all complete protein sequences
      search_term = protein + " AND " + family + " NOT partial[Title] NOT PREDICTED[Title]"
 
-ids = Entrez.read(Entrez.esearch(db="protein", term=search_term, retmax='50'))['IdList'] # TROUBLESHOOTING!
+# Return the top 50 matches from the search
+ids = Entrez.read(Entrez.esearch(db="protein", term=search_term, retmax='50'))['IdList']
 
 # If the search returned NO results, only print "EMPTY", which will be used to send a message to the user
 if len(ids) == 0:

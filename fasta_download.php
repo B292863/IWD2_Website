@@ -8,6 +8,7 @@ require_once 'redir.php';
 header('Content-Type: text/plain');
 header('Content-Disposition: attachment; filename=data.fa');
 
+// Make connection to MySQL
 try {
         $pdo = new PDO(
                 "mysql:host=$hostname;dbname=$database",
@@ -28,6 +29,8 @@ $query = "SELECT * FROM $data";
 $stmt = $pdo->query($query);
 $rows = $stmt->fetchAll();
 
+// Print the data in FASTA format
+// Reference chunk_split(): https://www.w3schools.com/php/func_string_chunk_split.asp
 foreach ($rows as $row) {
 	echo ">" . $row['id'] . " " . $row['protein'] . " [" . $row['organism'] . "]\n";
 	echo chunk_split($row['sequence'], 80, "\n");

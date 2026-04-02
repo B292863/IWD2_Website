@@ -4,20 +4,19 @@ require_once 'redir.php';
 
 $img = "/tmp/heatmap.png"; // generate a new filename each time to get around caching issues
 
-// echo "<pre>";
-// echo $img;
-// echo "</pre>";
-
+// Remove old file so that it will not get printed to the screen
 if (file_exists($img)) {
         unlink($img);
 }
 
+// Makes sure that if no data is available, this error message is generated
 if (!$data) {
         echo "<h2 align='center'>Amino Acid Substitution Heatmap</h2>";
         echo "<p align='center'>No data has been selected yet!</p>";
         exit();
 }
 
+// Make connection to MySQL database
 try {
         $pdo = new PDO(
                 "mysql:host=$hostname;dbname=$database",
@@ -37,9 +36,6 @@ try {
 $query = "SELECT * FROM $data";
 $stmt = $pdo->query($query);
 $rows = $stmt->fetchAll();
-
-// https://www.w3schools.com/php/func_var_var_dump.asp
-//var_dump($rows);
 
 // Generate the FASTA string (stdin) [by appending each row to the string]
 $fasta_stdin = "";
@@ -63,7 +59,6 @@ fwrite($pipes[0], $fasta_stdin);
 fclose($pipes[0]);
 
 // Capture the alignment
-// plotcon needs MSA in a file, doesn't take stdin
 $msa = stream_get_contents($pipes[1]);
 $tmpmsa = "/tmp/align.fa";
 file_put_contents($tmpmsa, $msa);
@@ -78,11 +73,7 @@ proc_close($process1);
 // Generating the amino acid heatmap
 $python = __DIR__ . "/directed_learning/bin/python3";
 $command = escapeshellcmd($python) . " aa_heat.py " . escapeshellarg($tmpmsa) . " " . escapeshellarg($img);
-// echo "<pre>";
-// echo $command;
-// echo "</pre>";
 exec($command);
-//file_put_contents($img, $heat)
 
 // Print image to the screen
 $img = "/tmp/heatmap.png";
