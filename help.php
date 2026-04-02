@@ -14,8 +14,20 @@ echo<<<_BODY1
 <center><h1> Website Help Page: a User Guide</h1></center>
 </div>
 <p>This website hosts a suite of tools for analyzing a user selected protein family. </p>
+
+<!-- Navigation Menu -->
+<nav>
+<p>Navigate to:</p>
+<div class='vert_line_s'>
+<ul>
+        <li><a href="#use">Website Use</a></li>
+        <li><a href="#func">Functionality</a></li>
+</ul>
+</div>
+</nav>
+
 <hr></hr>
-<h2>How to Use this Website</h2>
+<h2 id='use'>How to Use this Website</h2>
 
 <p>The home page is the data selection page. Here, users have the option to search for a specific protein from a specific taxonomic group, select a previous search, or use the example dataset, Glucose-6-Phosphatase Proteins from Aves.</p>
 
@@ -29,7 +41,7 @@ echo<<<_BODY1
 <p>Once a selection has been made, the tools are populated with this data. Users can browse through the different functions as listed above for their selected data.</p>
 <p><b>Note:</b> If a selection has not been made, attempting to access the functionality pages (Conservation Analysis, MSA, Phylogenetic Analysis, Data Download) will redirect the user back to the home page.</p>
 <hr></hr>
-<h2>Functionality</h2>
+<h2 id='func'>Functionality</h2>
 <div id="div1"
 <p>The following functions are hosted on this website:</p>
 <p>1. <a href="https://bioinfmsc8.bio.ed.ac.uk/~s2901468/iwd2_website/a1.php">Protein conservation analysis</a></p>

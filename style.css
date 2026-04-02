@@ -273,6 +273,11 @@ img {
   height: 60px;
 }
 
+.vert_line_s {
+  border-left: 6px solid Tomato;
+  height: 40px;
+}
+
 /* Navigation Table of Contents Styling - Keep on screen */
 /* Reference: https://stackoverflow.com/questions/14390979/how-do-i-keep-a-nav-bar-at-the-top-of-the-page */
 nav

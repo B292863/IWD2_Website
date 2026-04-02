@@ -183,6 +183,7 @@ td {
 </style>
 <div class="content">
 <h2 align='center'>Multiple Sequence Alignment Statistics</h2>
+<!-- Navigation Menu -->
 <nav>
 <p>Browse through the following:</p>
 <div class="vert_line">

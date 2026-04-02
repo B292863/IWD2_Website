@@ -15,6 +15,7 @@ echo<<<_BODY1
 
 <p>This website hosts a suite of tools for analyzing a user selected protein family. </p>
 
+<!-- Navigation Menu -->
 <nav>
 <p>Navigate to:</p>
 <div class='vert_line'>

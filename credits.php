@@ -15,6 +15,7 @@ echo<<<_BODY1
 <div class="sub_box">
 <center><h1> Statement of Credit</h1></center>
 </div>
+<!-- Navigation Menu -->
 <nav>
 <p>Navigate to:</p>
 <div class='vert_line'>
