@@ -30,4 +30,6 @@ c_array = np.array(counts)
 plt.figure(figsize=(10,8))
 plt.pie(c_array, labels = labs, startangle = 90, colors=plt.cm.tab20b(np.linspace(0,1,len(counts))))
 plt.title("PROSITE Motif Summary")
+# Refence for Matplotlib: https://matplotlib.org/stable/gallery/pie_and_polar_charts/pie_and_donut_labels.html
+plt.legend(loc='center left', bbox_to_anchor=(0.8, 0, 0.6, 0))
 plt.savefig(outs, transparent=True)
