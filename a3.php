@@ -104,9 +104,42 @@ $_SESSION['pats'] = array();
 
 echo "<div class='content'>";
 
+// Define the path to the summary plot
 $img = "/tmp/pat_plot.png";
 
-echo "<div class='sub_box'><h1 align='center'>Motif Report</h1></div>"; //<pre align='center'>
+echo "<div class='sub_box'><h1 align='center'>Motif Report</h1></div>";
+
+echo <<<NAV
+<!-- Navigation Menu -->
+<nav>
+<p>Browse through the following:</p>
+<div class='vert_line_s'>
+<ul>
+        <li><a href="#sum">PROSITE Summary</a></li>
+        <li><a href="#hits">PROSITE Hits</a></li>
+</ul>
+</div>
+</nav>
+
+<p>The <b>PROSITE Summary pie</b> chart visualizes the types of PROSITE motifs identified in the input protein sequences</p>
+<ul>
+	<li><b>Note:</b> This may take a couple seconds to generate</li>
+</ul>
+<p>The <b>PROSITE Hits</b> data table contains all the PROSITE motifs identified in the input protein sequences. The columns represent:</p>
+<ul>
+	<li><b>ID:</b> ID of the protein sequence containing motif.</li>
+	<li><b># Hits:</b> The number of PROSITE motifs (hits) identified <i>for a given ID and motif.</i></li>
+	<li><b>Length:</b> Length of matched motif sequence.</li>
+	<li><b>Start:</b> Start position of motif in input protein sequence.</li>
+	<li><b>End:</b> End position of motif in input protein sequence.</li>
+	<li><b>Motif:</b> Name of the motif.</li>
+	<li><b>Motif Sequence:</b> The sequence of the motif in the input protein sequence.</li>
+</ul>
+NAV;
+
+echo "<hr>";
+
+echo "<h3 align='center' id='sum'>PROSITE Summary</h3>";
 
 // Print the summary data to the screen if the file exists
 if (file_exists($img)) {
@@ -115,14 +148,19 @@ if (file_exists($img)) {
         echo '<p align="center">No PROSITE Motif Summary</p>';
 }
 
+echo "</hr>";
+
 // Initializethe patmat session variable
 $_SESSION['pats'] = [];
 
 // Print the parsed patmatmotif data to the website as a table, if output was successfully generated
+echo "<hr>";
+echo "<h3 align='center' id='hits'>PROSITE Hits</h3>";
+
 if (file_exists($tmpout)) {
 	echo "<div class='data'>";
         echo "<table align='center'>";
-                echo "<tr><th>ID</th><th>Hit</th><th>Length</th><th>Start</th><th>End</th><th>Motif</th><th>Motif Sequence</th></tr>";
+                echo "<tr><th>ID</th><th># Hits</th><th>Length</th><th>Start</th><th>End</th><th>Motif</th><th>Motif Sequence</th></tr>";
 	// Reference: https://www.w3schools.com/php/php_looping_foreach.asp;
 	foreach ($parsed as $key => $value) {
 		foreach ($value as $key1 => $val1) {
@@ -147,10 +185,9 @@ if (file_exists($tmpout)) {
 	}
 	echo "</table>";
 	echo "</div>";
-	// echo "<h1 align='center'>Motif Report</h1><pre align='center'>" . file_get_contents($tmpout) . "</pre>";
 } else {
 	echo "<div class='sub_box'><h1 align='center'>Motif Report</h1></div><p align='center'>Sorry, I've got nothing for you :(</p>";
-
+echo "</hr>";
 echo "</div>";
 }
 ?>

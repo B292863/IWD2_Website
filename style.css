@@ -156,6 +156,11 @@ img {
 
 .data th {
   border-bottom: 1px solid #ddd;
+  padding: 10px;
+}
+
+.data td {
+  padding: 10px;
 }
 
 .data tr:hover {
