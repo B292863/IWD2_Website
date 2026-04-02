@@ -29,7 +29,7 @@ echo<<<_BODY1
 <hr></hr>
 <h2 id='use'>How to Use this Website</h2>
 
-<p>The home page is the data selection page. Here, users have the option to search for a specific protein from a specific taxonomic group, select a previous search, or use the example dataset, Glucose-6-Phosphatase Proteins from Aves.</p>
+<p>The home page is the data selection page. Here, users have the option to search for a specific protein from a specific taxonomic group, select a previous search, or use the example dataset, Glucose-6-Phosphatase Proteins from Aves. The user can submit a more <a href="https://bioinfmsc8.bio.ed.ac.uk/~s2901468/iwd2_website/about.php">stringent search or a less stringent search</a>, as desired.</p>
 
 <p><b>Data Selection Options:</b></p>
 <ol>

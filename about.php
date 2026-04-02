@@ -39,7 +39,7 @@ echo<<<_BODY1
 <pre>**protein**[Protein Name] AND **family**[Organism] NOT partial[Title] NOT PREDICTED[Title]</pre>
 </ul>
 
-<p>However, in instances where this search returns no IDs, the following search is then carried out:</p>
+<p>However, users may also use the following <u>less stringent</u> search criteria:</p>
 
 <ul>
 <pre>**protein** AND **family** NOT partial[Title] NOT PREDICTED[Title]</pre>

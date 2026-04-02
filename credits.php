@@ -29,7 +29,7 @@ echo<<<_BODY1
 <hr>
 <h2 id='code'>Code Resources:</h2>
 
-<p>In addition to the following references, the code files in this website's <a target="_blank" rel="noopener noreferrer" href="https://github.com/B292863/IWD2_Website">GitHub repository</a> have commented references above the code where the resources were used.</p>
+<p>In addition to the following references (provided via linkout), the code files in this website's <a target="_blank" rel="noopener noreferrer" href="https://github.com/B292863/IWD2_Website">GitHub repository</a> have commented references above the code where the resources were used.</p>
 
 <ul>
 	<li><a target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com">W3Schools</a></li>
@@ -82,7 +82,8 @@ echo<<<_BODY1
                 <li><a target="_blank" rel="noopener noreferrer" href="https://code.tutsplus.com/php-isset-vs-empty-vs-is_null--cms-37162t#">envato tuts+</a></li>
         </ul>
         <li>For tab linkout functionality, a <a target="_blank" rel="noopener noreferrer" href="https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams">URL API</a> was used</li>
-        <li>Syntax in <a> tag to <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/questions/15551779/open-link-in-new-tab-or-window">open a website in a new tab.</a></li>
+	<li>Syntax in <a> tag to <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/questions/15551779/open-link-in-new-tab-or-window">open a website in a new tab.</a></li>
+	<li><a target="_blank" rel="noopener noreferrer" href="https://resilienteducator.com/instructional-design/hanging-indents-in-html-and-css-for-instructional-designers/#:~:text=The%20style%20attribute%20value%20%E2%80%9Cpadding,negative%20value%20of%20%2D36px).">Hanging indents</a> in HTML</li>
 	<li><a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/questions/67467383/php-parse-dict-output-from-python-script">Parsing Python dictionaries</a> in PHP</li>
 	<li>Using <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=xHFzQ8QRjGU">sublinks</a> to easily navigate to different parts of a page.</li>
 	<li><a target="_blank" rel="noopener noreferrer" href="https://biopython.org/docs/dev/Tutorial/chapter_msa.html">BioPython Modules</a></li>
@@ -121,6 +122,7 @@ echo<<<_BODY1
 <hr>
 <h2 id='cite'>Citations:</h2>
 	<div style="text-indent: -36px; padding-left: 36px;">Cock, P. J. A., Antao, T., Chang, J. T., Chapman, B. A., Cox, C. J., Dalke, A., Friedberg, I., Hamelryck, T., Kauff, F., Wilczynski, B., & De Hoon, M. J. L. (2009). Biopython: Freely available Python tools for computational molecular biology and bioinformatics. Bioinformatics, 25(11), 1422–1423. https://doi.org/10.1093/bioinformatics/btp163</div>
+	<div style="text-indent: -36px; padding-left: 36px;">Krick, T., Verstraete, N., Alonso, L. G., Shub, D. A., Ferreiro, D. U., Shub, M., & Sánchez, I. E. (2014). Amino Acid metabolism conflicts with protein diversity. Molecular Biology and Evolution, 31(11), 2905–2912. https://doi.org/10.1093/molbev/msu228</div>
 	<div style="text-indent: -36px; padding-left: 36px;">Nguyen, L.-T., Schmidt, H. A., Von Haeseler, A., & Minh, B. Q. (2015). IQ-TREE: A Fast and Effective Stochastic Algorithm for Estimating Maximum-Likelihood Phylogenies. Molecular Biology and Evolution, 32(1), 268–274. https://doi.org/10.1093/molbev/msu300</div>
 	<div style="text-indent: -36px; padding-left: 36px;">Rice P., Longden I. and Bleasby A. EMBOSS: The European Molecular Biology Open Software Suite. Trends in Genetics. 2000 16(6):276-277</div>
 	<div style="text-indent: -36px; padding-left: 36px;">Sigrist, C. J. A. (2002). PROSITE: A documented database using patterns and profiles as motif descriptors. Briefings in Bioinformatics, 3(3), 265–274. https://doi.org/10.1093/bib/3.3.265</div>

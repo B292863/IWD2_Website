@@ -218,7 +218,7 @@ if (file_exists($img)) {
 	echo "<p>Warmer (more red) colors represent a larger number of amino acid substitutions specified by the amino acid in the row and column.</p>";
 	echo "<p><b>Notes:</b></p>";
 	echo "<ul>";
-	echo "<li>Amino acids do not occur at equal frequencies, note the larger counts of certain amino acids in the diagonal (e.g., Leucine (L) is the most abundant amino acid).</li>";
+	echo "<li>Amino acids do not occur at equal frequencies, note the larger counts of certain amino acids in the diagonal (e.g., Leucine (L) is one of the most abundant amino acid in many organisms (Krick et al., 2014)).</li>";
 	echo "<li>There are certain mismatches that are more or less common depending on the input set of proteins, which can be identified by cells in the heatmap that are <u>less blue</u>.</li>";
 	echo "</ul>";
 	echo "</div>";
