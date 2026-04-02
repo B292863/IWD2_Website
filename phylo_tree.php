@@ -40,7 +40,7 @@ $rows = $stmt->fetchAll();
 // Generate the FASTA string (stdin) [by appending each row to the string]
 $fasta_stdin = "";
 foreach ($rows as $row) {
-	$fasta_stdin .= ">" . $row['id'] . " " . $row['protein'] . " [" . $row['organism'] . "]\n";
+	$fasta_stdin .= ">" . $row['id'] . "_" . str_replace(" ", "_", $row['organism']) . "\n";
 	$fasta_stdin .= $row['sequence'] . "\n";
 };
 

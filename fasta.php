@@ -1,8 +1,8 @@
 <?php
 require_once 'login.php';
 require_once 'redir.php';
-echo<<<_HEAD1
-<! DOCTYPE html>
+echo <<<_HEAD1
+<!DOCTYPE html>
 <html>
 <head>
 <title>FASTA Entries</title>
@@ -51,25 +51,29 @@ $query = "SELECT * FROM $data";
 $stmt = $pdo->query($query);
 $rows= $stmt->fetchAll();
 
-echo<<<HTML_1
+echo<<<_HTML1
 <div class='content'>
 <div class="sub_box">
 <h1 align="center">Data Download</h1>
 </div>
 <p></p>
-	<!--Download the File-->
+<!--Download the File-->
+<h4>Download multi-line FASTA file:</h4>
 <div>
 <form action="fasta_download.php" method="post">
         <button type="submit" class="button">Download Data</button>
 </form>
 </div>
 
+<hr>
+<h3 align='center'>Data Viewer</h3>
+
 <table width ="95%" border="0" cellspacing="0">
 <tr>
 	<th>ID</th>
 	<th>Organism</th>
 	<th>Sequence</th>
-HTML_1;
+_HTML1;
 
 foreach ($rows as $row) {
 	echo "<tr>";
@@ -79,10 +83,11 @@ foreach ($rows as $row) {
 	echo "</tr>";
 }
 
-echo<<<HTML_2
+echo <<<_HTML2
 </table>
 </div>
+</hr>
 </body>
 </html>
-HTML_2;
+_HTML2;
 ?>

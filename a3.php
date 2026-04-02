@@ -121,7 +121,7 @@ echo <<<NAV
 </div>
 </nav>
 
-<p>The <b>PROSITE Summary pie</b> chart visualizes the types of PROSITE motifs identified in the input protein sequences</p>
+<p>The <b>PROSITE Summary</b> pie chart visualizes the types of PROSITE motifs identified in the input protein sequences</p>
 <ul>
 	<li><b>Note:</b> This may take a couple seconds to generate</li>
 </ul>

@@ -49,12 +49,15 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // Print the phylogenetic tree if the file exists
 // Reference: https://www.w3schools.com/tags/tag_meta.asp
-echo "<p>This phylogenetic tree is the inferred evolutionary relationships between the input protein sequences based on sequence similarity</p>";
+echo "<p>This phylogenetic tree visualizes the inferred evolutionary relationships between the input protein sequences based on sequence similarity.</p>";
+echo "<p>A reference list of the relevant sequence IDs and organisms are also provided.</p>";
 echo "<p><b>Note:</b> Generating the underlying treefile that is used for creating the phylogenetic tree takes some time. Please wait around a minute for the visual to show up.</p>";
+echo "<hr>";
 echo "<div class='vert_layout'>";
 echo "<div>";
+echo "<h3 align='center'>Phylogenetic Tree</h3>";
 if (!file_exists($tree)) {
-	echo '<meta http-equiv="refresh" content="30">';
+	echo '<p align="center">No Phylogenetic Tree Exists</p>';
 } else {
 	echo "<div>";
 	echo '<img src="get_phylo_tree.php" alt="Gene Tree" width="500" class="center">'; //height="600"
@@ -64,6 +67,7 @@ echo "</div>";
 
 // Return list of Organisms and IDs
 echo "<div>";
+echo '<h3 align="center">Reference List: Organisms and IDs</h3>';
 echo "<div class='data'>";
 echo "<table style='margin: 0 auto'>";
 echo "<tr><th>ID</th><th>Organism</th></tr>";
@@ -77,9 +81,10 @@ foreach ($rows as $row) {
 echo "</table>";
 echo "</div>";
 echo "</div>";
+echo "</hr>";
 echo "</div>";
 echo <<<END_
 </html>
 </body>
 END_
-?>
+?>i
