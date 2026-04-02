@@ -34,7 +34,10 @@ echo<<<_BODY1
 <p><b>Data Selection Options:</b></p>
 <ol>
         <li>Select taxonomic group and protein</li>
-        <li>Use a previous search</li>
+	<li>Use a previous search</li>
+	<ul>
+		<li>The last 5 searches will be displayed</li>
+	<ul>
         <li>Example Data: Glucose-6-Phosphatase Proteins from Aves</li>
 </ol>
 
